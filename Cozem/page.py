@@ -25,7 +25,7 @@ st.set_page_config(page_title="Melange", page_icon=":gem:", layout="wide")
 password = 1234
 password_test = "1234"
 
-image = Image.open("Cozem/image/banner.jpg")
+image = Image.open("Cozem/image/jewelry_banner.png")
 
 # # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
@@ -43,7 +43,7 @@ with st.sidebar:
     )
 
     data = {
-        'Name': ['💾Google Docs','📫문의방'],
+        'Name': ['💾Google Docs','📫문의방', ],
         'Link': ['[![GitHub](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://onedrive.live.com/edit.aspx?resid=221CE48C87202DCA!2450&ithint=file%2cxlsx&authkey=!ADKQOeLCxzQp_5o)',
          '[![GitHub](https://img.shields.io/badge/Kakao%20talk-FFBE00?style=for-the-badge&logo=kakaotalk&logoColor=white)](https://open.kakao.com/o/gUmZwuzd)']
     }
