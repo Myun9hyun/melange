@@ -1,0 +1,15 @@
+pandas
+statsmodels
+plotly
+matplotlib
+seaborn
+streamlit_option_menu
+numpy
+openpyxl
+streamlit
+tabulate
+Pillow
+PyPDF2==1.26.0
+PyMuPDF
+beautifulsoup4==4.10.0
+joblib
