@@ -4,11 +4,11 @@ from PIL import Image, ImageDraw, ImageFont
 import requests
 import pandas as pd
 import numpy as np
-import plotly.express as px  
+import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
-# import joblib
+import joblib
 import seaborn as sns
 from streamlit_option_menu import option_menu
 import os
@@ -21,62 +21,63 @@ import fitz
 from bs4 import BeautifulSoup
 
 
-st.set_page_config(page_title="BanShamDoongDolYoung", page_icon=":rabbit:", layout="wide")
+st.set_page_config(page_title="BanShamDoongYoung", page_icon=":rabbit:", layout="wide")
 password = 1234
 password_test = "1234"
 
-image = Image.open("Cozem/image/cover_guild.jpg")
-width, height = image.size
-# 이미지에 텍스트 추가
-draw = ImageDraw.Draw(image)
-text_kor = "아기자기"
-text_eng = "Welcome to"
-text_ver = "ver.04.18_1"
-text_madeby = "@둥둥향"
-font_kor = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 50)
-font_eng = ImageFont.truetype("Cozem/font/ARIAL.TTF", 50)
-text_width, text_height = draw.textsize(text_kor, font=font_kor)
-font_ver = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 15)
-font_madeby = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 15)
-stroke_width = 2
-stroke_fill = (0, 0, 0)
+image = Image.open("Cozem/image/banner.jpg")
+# width, height = image.size
+# # 이미지에 텍스트 추가
+# draw = ImageDraw.Draw(image)
+# text_kor = "아기자기"
+# text_eng = "Welcome to" 
+# text_ver = "updated_05.30"
+# text_madeby = "@둥둥향"
+# font_kor = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 50)
+# font_eng = ImageFont.truetype("Cozem/font/ARIAL.TTF", 50)
+# text_width, text_height = draw.textsize(text_kor, font=font_kor)
+# font_ver = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 30)
+# font_madeby = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 30)
+# stroke_width = 2
+# stroke_fill = (0, 0, 0)
 
-x = text_width - 100
-y = height - text_height - 200
-z = height - text_height - 255
-x_ver = width - text_width + 70
-y_ver = height - text_height + 30
-x_made = width - text_width + 70
-y_made = height - text_height + 10
+# x = text_width - 100
+# y = height - text_height - 200
+# z = height - text_height - 255
+# x_ver = width - text_width - 70
+# y_ver = height - text_height - 10
+# x_made = width - text_width - 70
+# y_made = height - text_height - 50
 # 테두리가 있는 텍스트 그리기
 
-# 아기자기 글씨 구현
-draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
+# # 아기자기 글씨 구현
+# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
 
-# Welcome to 구현
-draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
+# # Welcome to 구현
+# draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
 
-# 버전 구현
-draw.text((x_ver - stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_ver + stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_ver, y_ver - stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_ver, y_ver + stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_ver, y_ver), text_ver, font=font_ver, fill=(255, 255, 255))
+# # 버전 구현
+# draw.text((x_ver - stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_ver + stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_ver, y_ver - stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_ver, y_ver + stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_ver, y_ver), text_ver, font=font_ver, fill=(255, 255, 255))
 
-# madeby구현
-draw.text((x_made - stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_made + stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_made, y_made - stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_made, y_made + stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-draw.text((x_made, y_made), text_madeby, font=font_madeby, fill=(255, 255, 255))
+# # madeby구현
+# draw.text((x_made - stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_made + stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_made, y_made - stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_made, y_made + stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
+# draw.text((x_made, y_made), text_madeby, font=font_madeby, fill=(255, 255, 255))
+
 def set_BGM(bgm):
     if bgm:
         audio_path = f"Cozem/bgm/{bgm}.mp3"
@@ -100,7 +101,7 @@ with st.sidebar:
         "container": {"padding": "4!important", "background-color": "#fafafa"},
         "icon": {"color": "black", "font-size": "25px"}, 
         "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#fafafa"},
-        "nav-link-selected": {"background-color": "#02ab21"},
+        "nav-link-selected": {"background-color": "#73B4EC"},
     }
     )
 
@@ -117,18 +118,18 @@ with st.sidebar:
                 "오디움_신의창", "강림_괴력난신" , "아델의맹세", "아쉴롬_일리움", "악몽의시계탑", "시간의신전"]
     bgm = st.selectbox("🔈원하시는 배경음악을 골라주세용", bgms)
     st.write("음악은 다른 기능을 사용하면 정지됩니다.")
-    set_BGM(bgm)
-    # col3, col4 = st.columns(2)
-    # with col3:
-    st.write("Play")
-    if st.button("▶"):
-        st.success("음악 재생")
-        set_BGM(bgm)
-    # with col4:
-    st.write("Stop")
-    if st.button("⬛"):
-        st.warning("음악 정지")
-        pass
+    # set_BGM(bgm)
+    col3, col4 = st.columns(2)
+    with col3:
+        st.write("Play")
+        if st.button("▶"):
+            st.success("음악 재생")
+            set_BGM(bgm)
+    with col4:
+        st.write("Stop")
+        if st.button("⬛"):
+            st.warning("음악 정지")
+            pass
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
@@ -138,13 +139,15 @@ if choice == "메인페이지":
     st.write()
     '''
     ##### 우리 아기자기는요~
+    * 201X년 X월 창설
+    * 2022년 5월 14일 30레벨 달성
     * 47포 길드
     * Lv220 이상 가입 가능
     * 연합길드 '초초' 보유
     '''
 
 elif choice == "길드페이지":
-    tab1, tab2, tab3= st.tabs(["😎Manager", "📋Rules", "Character Data"])
+    tab1, tab2= st.tabs(["😎Manager", "📋Rules"])
     with tab1:
         st.header("😎Manager")
         st.write()
@@ -154,115 +157,118 @@ elif choice == "길드페이지":
         ---
         ### 길드 간부진 💪
         | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 | 메지지 프로필 |
-        | :---: | :---: | :---: | :---: | :---: |
-        | 길마👑 | 뱌닢 | 나이트로드 | [![maple](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/뱌닢) |
-        | 부마 | 릎샴  | 아크 | [![maple](https://img.shields.io/badge/kakaotalk-릎샴-yellow)](https://open.kakao.com/o/s0FeFIee) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/릎샴) |
-        | 부마 | 둥둥향 | 캐논슈터 | [![maple](https://img.shields.io/badge/kakaotalk-둥둥향-yellow)](https://open.kakao.com/o/sl6WBJUc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/둥둥향) |
-        | 부마 | 돌체라페  | 메르세데스 | [![maple](https://img.shields.io/badge/kakaotalk-돌체라페-yellow)](https://open.kakao.com/o/sEmQw9Ye) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/돌체라페) |
-        | 부마 | 영래곰  | 듀얼블레이드 | [![maple](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/영래곰) |
+        | :---: | :---: | :---: | :---: | :---:|
+        | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/뱌닢) |
+        | 부마 | 릎샴  | 아크 | [![Colab](https://img.shields.io/badge/kakaotalk-릎샴-yellow)](https://open.kakao.com/o/s0FeFIee) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/릎샴) |
+        | 부마 | 둥둥향 | 캐논슈터 | [![Colab](https://img.shields.io/badge/kakaotalk-둥둥향-yellow)](https://open.kakao.com/o/sl6WBJUc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/둥둥향) |
+        | 부마 | 영래곰  | 듀얼블레이드 | [![Colab](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/영래곰) |
         '''
 # pdf_path = "Cozem/rule/아기자기_길드_규정_2023.pdf"
         # with col2:
         #     st.image("Cozem/image/elinel.jpg", use_column_width=True)
     with tab2:
         st.header("📋길드 규정집📋")
+        # st.image("Cozem/read_me_image/guide_new_1.jpg", use_column_width=True)
+        # st.image("Cozem/read_me_image/guide_new_2.jpg", use_column_width=True)
+        st.image("Cozem/read_me_image/rule_new_1.jpg", use_column_width=True)
+        st.image("Cozem/read_me_image/rule_new_2.jpg", use_column_width=True)
+        # # PDF 파일의 URL을 입력받습니다.
+        # st.write("pdf파일!")
+        # pdf_url = "Cozem/rule/아기자기_길드_규정_2023.pdf"
 
-        # PDF 파일의 URL을 입력받습니다.
-        pdf_url = "Cozem/rule/아기자기_길드_규정_2023.pdf"
+        # # PDF 파일을 이미지로 변환합니다.
+        # if pdf_url:
+        #     with fitz.open(pdf_url) as doc:
+        #         for i, page in enumerate(doc):
+        #             pixmap = page.get_pixmap(dpi=300)  # dpi 값을 300으로 설정
+        #             image = Image.frombytes("RGB", [pixmap.width, pixmap.height], pixmap.samples)
+        #             st.image(image, caption=f"Page {i+1}", use_column_width=True)
+    # with tab3:
+    #     st.header("메이플지지 검색")
 
-        # PDF 파일을 이미지로 변환합니다.
-        if pdf_url:
-            with fitz.open(pdf_url) as doc:
-                for i, page in enumerate(doc):
-                    pixmap = page.get_pixmap(dpi=300)  # dpi 값을 300으로 설정
-                    image = Image.frombytes("RGB", [pixmap.width, pixmap.height], pixmap.samples)
-                    st.image(image, caption=f"Page {i+1}", use_column_width=True)
-    with tab3:
-        st.header("메이플지지 검색")
+    #     # 검색할 캐릭터 이름
+    #     character_name = st.text_input("닉네임을 입력해주세요 : ")
 
-        # 검색할 캐릭터 이름
-        character_name = st.text_input("닉네임을 입력해주세요")
+    #     # 검색 결과 페이지의 URL
+    #     url = f'https://maple.gg/u/{character_name}'
 
-        # 검색 결과 페이지의 URL
-        url = f'https://maple.gg/u/{character_name}'
+    #     if character_name:
+    #         # requests 모듈을 이용해 HTTP GET 요청을 보내고 HTML 코드를 가져옴
+    #         response = requests.get(url)
+    #         html = response.content
 
-        if character_name:
-            # requests 모듈을 이용해 HTTP GET 요청을 보내고 HTML 코드를 가져옴
-            response = requests.get(url)
-            html = response.content
+    #         # BeautifulSoup 모듈을 이용해 HTML 코드를 파싱
+    #         soup = BeautifulSoup(html, 'html.parser')
 
-            # BeautifulSoup 모듈을 이용해 HTML 코드를 파싱
-            soup = BeautifulSoup(html, 'html.parser')
+    #         # 직업 정보 가져오기
+    #         job_element = soup.select_one('.user-summary-item:nth-child(2)')
+    #         job = job_element.text.strip() if job_element else 'Not found'
 
-            # 직업 정보 가져오기
-            job_element = soup.select_one('.user-summary-item:nth-child(2)')
-            job = job_element.text.strip() if job_element else 'Not found'
+    #         # 월드 정보 가져오기
+    #         world_element = soup.select_one('.user-detail h3 img')
+    #         world = world_element['alt'] if world_element else 'Not found'
 
-            # 월드 정보 가져오기
-            world_element = soup.select_one('.user-detail h3 img')
-            world = world_element['alt'] if world_element else 'Not found'
+    #         # 길드 정보 가져오기
+    #         guild_element = soup.select_one('.user-additional b')
+    #         guild = guild_element.find_next_sibling().text.strip() if guild_element else 'Not found'
 
-            # 길드 정보 가져오기
-            guild_element = soup.select_one('.user-additional b')
-            guild = guild_element.find_next_sibling().text.strip() if guild_element else 'Not found'
+    #         # 무릉 최고기록 정보 가져오기
+    #         mulung_element = soup.select_one('.col-lg-3:nth-child(1) .user-summary-box .user-summary-box-content')
+    #         if mulung_element:
+    #             mulung_floor = mulung_element.select_one('.user-summary-floor').text.strip().split()[0]
+    #             mulung_duration = mulung_element.select_one('.user-summary-duration').text.strip()
+    #             mulung_info = f'{mulung_floor} ({mulung_duration})'
+    #         else:
+    #             mulung_info = 'Not found'
 
-            # 무릉 최고기록 정보 가져오기
-            mulung_element = soup.select_one('.col-lg-3:nth-child(1) .user-summary-box .user-summary-box-content')
-            if mulung_element:
-                mulung_floor = mulung_element.select_one('.user-summary-floor').text.strip().split()[0]
-                mulung_duration = mulung_element.select_one('.user-summary-duration').text.strip()
-                mulung_info = f'{mulung_floor} ({mulung_duration})'
-            else:
-                mulung_info = 'Not found'
+    #         level_element = soup.select_one('.user-summary-item:nth-child(1)')
+    #         if level_element:
+    #             level_info = level_element.text.strip().split('(')
+    #             level = level_info[0]
+    #             # exp_percentage = level_info[1].replace(')', '')
+    #         else:
+    #             level = 'Not found'
+    #             exp_percentage = 'Not found'
 
-            level_element = soup.select_one('.user-summary-item:nth-child(1)')
-            if level_element:
-                level_info = level_element.text.strip().split('(')
-                level = level_info[0]
-                exp_percentage = level_info[1].replace(')', '')
-            else:
-                level = 'Not found'
-                exp_percentage = 'Not found'
+    #     def get_maple_info(character_name):
+    #         url = f"https://maple.gg/u/{character_name}"
+    #         response = requests.get(url)
+    #         soup = BeautifulSoup(response.content, "html.parser")
 
-        def get_maple_info(character_name):
-            url = f"https://maple.gg/u/{character_name}"
-            response = requests.get(url)
-            soup = BeautifulSoup(response.content, "html.parser")
+    #         coord_items = soup.select(".character-coord__item")
+    #         coord_list = []
+    #         for item in coord_items:
+    #             item_type = item.select_one(".character-coord__item-type").text.strip()
+    #             item_name = item.select_one(".character-coord__item-name").text.strip()
+    #             coord_list.append(f"{item_type}: {item_name}")
 
-            coord_items = soup.select(".character-coord__item")
-            coord_list = []
-            for item in coord_items:
-                item_type = item.select_one(".character-coord__item-type").text.strip()
-                item_name = item.select_one(".character-coord__item-name").text.strip()
-                coord_list.append(f"{item_type}: {item_name}")
+    #         img_url = soup.select_one(".character-image")["src"]
+    #         response = requests.get(img_url)
+    #         img = Image.open(BytesIO(response.content))
 
-            img_url = soup.select_one(".character-image")["src"]
-            response = requests.get(img_url)
-            img = Image.open(BytesIO(response.content))
+    #         return coord_list, img
 
-            return coord_list, img
+    #     if st.button("코디 분석"):
+    #         if not character_name:
+    #             st.warning("닉네임을 입력해주세요!")
+    #         else:
+    #             coord_list, img = get_maple_info(character_name)
+    #             st.write("코디 분석 결과:")
+    #             st.image(img, width=200)
+    #             for item in coord_list:
+    #                 st.write(item) 
 
-        if st.button("코디 분석"):
-            if not character_name:
-                st.warning("닉네임을 입력해주세요!")
-            else:
-                coord_list, img = get_maple_info(character_name)
-                st.write("코디 분석 결과:")
-                st.image(img, width=200)
-                for item in coord_list:
-                    st.write(item) 
-
-        if st.button("랭킹 조회"):
-            st.write(f'직업: {job}')
-            st.write(f'서버: {world}')
-            st.write(f'길드: {guild}')
-            st.write(f'무릉: {mulung_info}')
-            st.write(f'레벨: {level}')
-            st.write(f'경험치: {exp_percentage}')
+    #     if st.button("랭킹 조회"):
+    #         st.write(f'직업: {job}')
+    #         st.write(f'서버: {world}')
+    #         st.write(f'길드: {guild}')
+    #         st.write(f'무릉: {mulung_info}')
+    #         st.write(f'레벨: {level}')
+    #         st.write(f'경험치: {exp_percentage}')
 
 elif choice == "직위관리":
     st.header("길드원 직위 관리 페이지")
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["💎Cozem", "📋Grade", "❌Warning", "⏸Pause", "💝Donated_Cozem"])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["💎Cozem", "📋Grade", "❌Warning", "⏸Pause", "💝Donated_Cozem", "🏃‍♂️Seceder🏃‍♂️"])
     with tab1:
         st.header("💎코어젬스톤💎")
         st.image("Cozem/image/cozem_guild.jpg", use_column_width=True)
@@ -286,6 +292,14 @@ elif choice == "직위관리":
             else:
                 i = (suro // 500)
             return i
+        
+        def Weekly_cozem(weekly_mission):
+            if weekly_mission == 5:
+                i = 2
+            else :
+                i = 0
+            return i
+
 
         def cozem_sum(suro, flag):
             answer = 0
@@ -293,7 +307,7 @@ elif choice == "직위관리":
             return answer
 
         def novel_p(weekly_mission, suro, flag):
-            if (weekly_mission >= 3) and (suro > 0) and (flag > 0):
+            if (weekly_mission >= 3) and (suro > 0):
                 novel = 'O'
             elif weekly_mission == 5 and suro >= 1500:
                 novel = 'O'
@@ -312,7 +326,7 @@ elif choice == "직위관리":
             try:
                 data = pd.read_csv(FILE_PATH)
             except FileNotFoundError:
-                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+                data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag','Weekly_Cozem', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             return data
         def load_data5():
             try:
@@ -331,7 +345,7 @@ elif choice == "직위관리":
         # 데이터 초기화 함수
         def clear_data():
             global data
-            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
+            data = pd.DataFrame(columns=['Name', 'Weekly_Mission', 'Suro', 'Flag','Weekly_Cozem', 'Cozem_Total', 'Novel', 'Role','Main_Name'])
             # 파일 삭제
             os.remove(FILE_PATH)
             
@@ -350,36 +364,91 @@ elif choice == "직위관리":
         # 불러온 데이터를 전역 변수로 저장
         data = load_data()
         data5 = load_data5()
+        # def add_name(names): # 낮 품목 저장
+        #     global data5 
+        #     if names in data5['Name'].values:
+        #         # st.warning(f'{names} (은)는 이미 있는 이름이야!')
+        #         return
+        #     data5 = data5.append({'Name': names}, ignore_index=True)
         def add_name(names): # 낮 품목 저장
             global data5 
             if names in data5['Name'].values:
                 # st.warning(f'{names} (은)는 이미 있는 이름이야!')
                 return
-            data5 = data5.append({'Name': names}, ignore_index=True)
+            new_data = pd.DataFrame({'Name': [names]})
+            data5 = pd.concat([data5, new_data], ignore_index=True)
+            # new_data = pd.DataFrame({'Name': [name], 'Warning': [warning_count], 'Reason': [reason]})
+            # data1 = pd.concat([data1, new_data], ignore_index=True)
 
+
+        # def add_data(name,character_type, weekly_mission, suro, flag):
+        #     global data, data5
+        #     if character_type == "부캐":
+        #         # main_name = st.selectbox('이름을 골라줘(❁´◡`❁)', options=data5['Name'].tolist())
+        #         main_name = st.text_input("본캐의 이름을 입력하세요.")
+        #         if main_name not in data['Name'].values:
+        #             st.warning(f'{main_name} (은)는 존재하지 않는 이름이야!')
+        #             return
+        #         main_row = data[data['Name'] == main_name].iloc[0]
+        #         # data = data.append({
+        #         data = data.concat({
+        #             'Name': name, 
+        #             'Weekly_Mission': weekly_mission, 
+        #             'Suro': suro,
+        #             'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+        #             'Flag': flag, 
+        #             'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
+        #             'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
+        #             'Novel': novel_p(weekly_mission, suro, flag),
+        #             'Role': role,
+        #             'Main_Name': main_name,
+        #         }, ignore_index=True)
+        #     else:
+        #         # 중복 검사
+        #         if name in data['Name'].values:
+        #             st.warning(f'{name} (은)는 추가되어있어!')
+        #             return
+        #         else:
+        #             st.success(f"{name}(이)는 추가할 수 있어!")
+        #         suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
+        #         flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
+        #         cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+        #         novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+        #         # data = data.append({
+        #         data = data.concat({
+        #             'Name': name, 
+        #             'Weekly_Mission': weekly_mission, 
+        #             'Suro': suro,
+        #             'Suro_Cozem': suro_cozem,
+        #             'Flag': flag, 
+        #             'Flag_Cozem': flag_cozem,
+        #             'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
+        #             'Novel': novel_value,  # Novel 값을 추가
+        #             'Role': '본캐',
+        #             'Main_Name' : '본캐'
+        #         }, ignore_index=True)
         def add_data(name,character_type, weekly_mission, suro, flag):
             global data, data5
             if character_type == "부캐":
-                # main_name = st.selectbox('이름을 골라줘(❁´◡`❁)', options=data5['Name'].tolist())
                 main_name = st.text_input("본캐의 이름을 입력하세요.")
                 if main_name not in data['Name'].values:
                     st.warning(f'{main_name} (은)는 존재하지 않는 이름이야!')
                     return
                 main_row = data[data['Name'] == main_name].iloc[0]
-                data = data.append({
+                data = pd.concat([data, pd.DataFrame({
                     'Name': name, 
                     'Weekly_Mission': weekly_mission, 
                     'Suro': suro,
-                    'Suro_Cozem': suro_cozem,  # suro_cozem 값을 추가
+                    'Suro_Cozem': Suro_cozem(suro),  # suro_cozem 값을 추가
                     'Flag': flag, 
-                    'Flag_Cozem': flag_cozem,  # flag_cozem 값을 추가
-                    'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag)),
+                    'Flag_Cozem': Flag_cozem(flag),
+                    'Weekly_Cozem' : Weekly_cozem(weekly_mission),  # flag_cozem 값을 추가
+                    'Cozem_Total': main_row['Cozem_Total'] + (Suro_cozem(suro) + Flag_cozem(flag) + Weekly_cozem(weekly_mission)),
                     'Novel': novel_p(weekly_mission, suro, flag),
-                    'Role': role,
+                    'Role': character_type,
                     'Main_Name': main_name,
-                }, ignore_index=True)
+                }, index=[len(data)])], ignore_index=True)
             else:
-                # 중복 검사
                 if name in data['Name'].values:
                     st.warning(f'{name} (은)는 추가되어있어!')
                     return
@@ -387,22 +456,71 @@ elif choice == "직위관리":
                     st.success(f"{name}(이)는 추가할 수 있어!")
                 suro_cozem = Suro_cozem(suro)  # Suro_cozem 함수를 이용해 suro_cozem 값을 계산
                 flag_cozem = Flag_cozem(flag)  # flag_cozem 함수를 이용해 flag_cozem 값을 계산
-                cozem_total = suro_cozem + flag_cozem  # 코젬 총합 계산
+                weekly_cozem = Weekly_cozem(weekly_mission)
+                cozem_total = suro_cozem + flag_cozem + weekly_cozem  # 코젬 총합 계산
                 novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
-                data = data.append({
+                data = pd.concat([data, pd.DataFrame({
                     'Name': name, 
                     'Weekly_Mission': weekly_mission, 
                     'Suro': suro,
                     'Suro_Cozem': suro_cozem,
                     'Flag': flag, 
                     'Flag_Cozem': flag_cozem,
+                    'Weekly_Cozem' : weekly_cozem,
                     'Cozem_Total': cozem_total,  # 코젬 총합 값을 추가
                     'Novel': novel_value,  # Novel 값을 추가
-                    'Role': '본캐',
-                    'Main_Name' : '본캐'
-                }, ignore_index=True)
+                    'Role': character_type,
+                    'Main_Name': '본캐',
+                }, index=[len(data)])], ignore_index=True)
+
 
         # def role(Role):
+        # def add_character_data(name, character_type, weekly_mission, suro, flag):
+        #     global data, data5
+        #     add_name(name)  # 입력된 이름을 데이터에 추가
+        #     if character_type == '본캐':
+        #         add_data(name,character_type, weekly_mission, suro, flag)
+        #     elif character_type == '부캐':
+        #         # main_name = st.text_input('본캐 이름을 입력하세요')
+        #         main_name = st.selectbox('본캐 이름을 골라줘', options=data5['Name'].tolist(), key='main12')
+        #         main_data = data.loc[data['Name'] == main_name]
+        #         if len(main_data) == 0:
+        #             st.warning(f"{main_name} (은)는 등록되어있지 않아!")
+        #             # return
+        #         else:
+        #             main_data_index = main_data.index[0]
+        #             suro_cozem = Suro_cozem(suro)
+        #             flag_cozem = Flag_cozem(flag)
+        #             cozem_total = suro_cozem + flag_cozem
+        #             data.loc[main_data_index, 'Cozem_Total'] += cozem_total
+        #             if main_data['Suro'].values[0] >= 4000:
+        #                 novel_value = main_data['Novel'].values[0]
+        #             else:
+        #                 novel_value = novel_p(weekly_mission, suro, flag)  # Novel 값 계산
+        #             if weekly_mission >= 2:
+        #                 novel_value = main_data['Novel'].values[0]
+        #             else:
+        #                 novel_value = novel_p(weekly_mission, suro, flag)
+        #             role = character_type
+        #             warning_count = 0
+        #             warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
+        #             if name in warning_main['Name'].values:
+        #                 warning_count = warning_count + 1
+        #             # data = data.append({
+        #             data = data.concat({
+        #                 'Name': name, 
+        #                 'Weekly_Mission': weekly_mission, 
+        #                 'Suro': suro, 
+        #                 'Suro_Cozem': suro_cozem,
+        #                 'Flag': flag, 
+        #                 'Flag_Cozem': flag_cozem,
+        #                 'Cozem_Total': cozem_total,
+        #                 'Novel': novel_value,
+        #                 'Role' : role,
+        #                 'Main_Name' : main_name
+        #             }, ignore_index=True)
+        #     else:
+        #         st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
         def add_character_data(name, character_type, weekly_mission, suro, flag):
             global data, data5
             add_name(name)  # 입력된 이름을 데이터에 추가
@@ -419,7 +537,9 @@ elif choice == "직위관리":
                     main_data_index = main_data.index[0]
                     suro_cozem = Suro_cozem(suro)
                     flag_cozem = Flag_cozem(flag)
-                    cozem_total = suro_cozem + flag_cozem
+                    weekly_cozem = Weekly_cozem(weekly_mission)
+                    # cozem_total = suro_cozem + flag_cozem
+                    cozem_total = suro_cozem + flag_cozem + weekly_cozem
                     data.loc[main_data_index, 'Cozem_Total'] += cozem_total
                     if main_data['Suro'].values[0] >= 4000:
                         novel_value = main_data['Novel'].values[0]
@@ -434,20 +554,23 @@ elif choice == "직위관리":
                     warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
                     if name in warning_main['Name'].values:
                         warning_count = warning_count + 1
-                    data = data.append({
-                        'Name': name, 
-                        'Weekly_Mission': weekly_mission, 
-                        'Suro': suro, 
-                        'Suro_Cozem': suro_cozem,
-                        'Flag': flag, 
-                        'Flag_Cozem': flag_cozem,
-                        'Cozem_Total': cozem_total,
-                        'Novel': novel_value,
-                        'Role' : role,
-                        'Main_Name' : main_name
-                    }, ignore_index=True)
+                    new_row = pd.DataFrame({
+                        'Name': [name], 
+                        'Weekly_Mission': [weekly_mission], 
+                        'Suro': [suro], 
+                        'Suro_Cozem': [suro_cozem],
+                        'Flag': [flag], 
+                        'Flag_Cozem': [flag_cozem],
+                        'Weekly_Cozem' : [weekly_cozem],
+                        'Cozem_Total': [cozem_total],
+                        'Novel': [novel_value],
+                        'Role' : [role],
+                        'Main_Name' : [main_name]
+                    })
+                    data = pd.concat([data, new_row], ignore_index=True)
             else:
                 st.warning(f"{character_type} (은)는 본캐/부캐가 아닙니다!")
+
 
         def download_xlsx(df, file_name):
             # 파일 확장자가 .xlsx가 아니면 파일명 끝에 .xlsx를 붙여줌
@@ -502,7 +625,7 @@ elif choice == "직위관리":
                     if st.button('차트 열기'):
                         if not data.empty:
                             st.write("코젬 계산 데이터")
-                            st.write(data[['Name', 'Weekly_Mission', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem', 'Cozem_Total', 'Novel','Role','Main_Name']])
+                            st.write(data[['Name', 'Weekly_Mission','Weekly_Cozem', 'Suro', 'Suro_Cozem', 'Flag', 'Flag_Cozem','Cozem_Total', 'Novel','Role','Main_Name']])
                             st.write("이름 데이터")
                             st.write(data5)
                         elif not data5.empty:
@@ -512,7 +635,7 @@ elif choice == "직위관리":
                             st.write('입력되어있는 데이터가 없습니다.')
                     # st.write()
                     if st.button("본캐 조회"):
-                        st.write(main_character)
+                        st.write(data[(data['Role'] == '본캐')])
 
                 
                 elif option == "데이터 삭제✂":
@@ -570,8 +693,8 @@ elif choice == "직위관리":
                         warning_WM_list = warning_WM['Name'].tolist()
                         warning_suro = warning[warning['Suro'] == 0]
                         warning_suro_list = warning_suro['Name'].tolist()
-                        warning_flag = warning[warning['Flag'] == 0]
-                        warning_flag_list = warning_flag['Name'].tolist()
+                        # warning_flag = warning[warning['Flag'] == 0]
+                        # warning_flag_list = warning_flag['Name'].tolist()
                         warning_main = data[(data['Novel'] == 'X') & (data['Role'] == '본캐')]
                         warning_main_list = warning_main['Name'].tolist()
 
@@ -596,10 +719,10 @@ elif choice == "직위관리":
                             st.write('이번주 지하수로 미실시자는 없습니다.')
                         else:
                             st.write(f"노블 제한자 중 지하수로 미실시자입니다 :  {warning_suro_list}.")
-                        if not warning_flag_list:
-                            st.write('이번주 플래그 미실시자는 없습니다.')
-                        else:
-                            st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
+                        # if not warning_flag_list:
+                        #     st.write('이번주 플래그 미실시자는 없습니다.')
+                        # else:
+                        #     st.write(f"노블 제한자 중 플래그 미실시자입니다 :  {warning_flag_list}.")
 
                     
                     if st.button('노블 사용가능 목록 보기'):
@@ -628,9 +751,10 @@ elif choice == "직위관리":
                     if st.button('위클리 코젬 분배 계산'):
                         weekly_main = data[(data['Role'] == '본캐')]
                         weekly_main_total = weekly_main['Cozem_Total'].sum()
-                        quotient = weekly_main_total // 5
-                        remainder = weekly_main_total % 5
-                        a = b = c = d = e = quotient
+                        quotient = weekly_main_total // 4
+                        remainder = weekly_main_total % 4
+                        # a = b = c = d = e = quotient
+                        a = b = c = d = quotient
                         for i in range(remainder):
                             if i == 0:
                                 a += 1
@@ -640,18 +764,18 @@ elif choice == "직위관리":
                                 c += 1
                             elif i == 3:
                                 d += 1
-                            else:
-                                e += 1
+                            # else:
+                            #     e += 1
                         st.write(f"이번주 위클리 이벤트 코젬은 총 {weekly_main_total}개 입니다.")
                         st.write(f"반디 : {a} 개")
                         st.write(f"샴푸 : {b} 개")
                         st.write(f"둥둥 : {c} 개")
-                        st.write(f"돌체 : {d} 개")
-                        st.write(f"영래 : {e} 개")
+                        st.write(f"영래 : {d} 개")
+                        # st.write(f"영래 : {e} 개")
                     if st.button("위클리 지급 대상"):
                         main_character = data[(data['Role'] == '본캐') & (data['Cozem_Total'] > 0)]
                         st.write("위클리 코젬 지급은 다음과 같습니다")
-                        st.write(main_character[['Name', 'Cozem_Total', 'Suro', 'Flag', 'Novel']])
+                        st.write(main_character[['Name', 'Cozem_Total','Weekly_Mission', 'Suro', 'Flag', 'Novel']])
 
 
                 elif option == "데이터 다운로드💾":
@@ -933,6 +1057,21 @@ elif choice == "직위관리":
 
             # 불러온 데이터를 전역 변수로 저장
             data2 = load_data2()
+            # def add_data2(name, why, period):
+            #     global data2
+            #     if name in data2['Name'].values:
+            #         st.warning(f'{name} (은)는 이미 있는 이름이야!')
+            #         return
+            #     else:
+            #         st.success(f"유예자 {name}이(가) 추가되었습니다.")
+
+            #     # data2 = data2.append({
+            #     data2 = data2.concat({
+            #         'Name': name, 
+            #         'Why' : why,
+            #         'Due to' : period
+
+            #     }, ignore_index=True)
             def add_data2(name, why, period):
                 global data2
                 if name in data2['Name'].values:
@@ -940,14 +1079,10 @@ elif choice == "직위관리":
                     return
                 else:
                     st.success(f"유예자 {name}이(가) 추가되었습니다.")
+                    
+                new_data2 = pd.DataFrame({'Name': [name], 'Why': [why], 'Due to': [period]})
+                data2 = pd.concat([data2, new_data2], ignore_index=True)
 
-                data2 = data2.append({
-                    'Name': name, 
-                    'Why' : why,
-                    'Due to' : period
-
-                }, ignore_index=True)
-            
 
             def main():
                 if option == "유예자 삭제✂":
@@ -1036,17 +1171,29 @@ elif choice == "직위관리":
 
             # 불러온 데이터를 전역 변수로 저장
             data3 = load_data3()
+            # def add_data3(info, cozem, day):
+            #     global data3
+            #     if info in data3['Info'].values:
+            #         st.warning(f'{info} (은)는 이미 있는 주차야!')
+            #         return
+            #     data3 = data3.append({
+            #     # data3 = data3.concat({
+            #         'Info': info, 
+            #         'Cozem' : cozem,
+            #         'Day' : day
+
+            #     }, ignore_index=True)
             def add_data3(info, cozem, day):
                 global data3
                 if info in data3['Info'].values:
-                    st.warning(f'{info} (은)는 이미 있는 주차야!')
+                    st.warning(f'{info} (은)는 이미 있는 이유야!')
                     return
-                data3 = data3.append({
-                    'Info': info, 
-                    'Cozem' : cozem,
-                    'Day' : day
+                else:
+                    st.success(f"기부코젬 {info}이(가) 추가되었습니다.")
+                    
+                new_data3 = pd.DataFrame({'Info': [info], 'Cozem': [cozem], 'Day': [day]})
+                data3 = pd.concat([data3, new_data3], ignore_index=True)
 
-                }, ignore_index=True)
             
             def use_cozem(info, use_cozem, day):
                 global data3
@@ -1054,14 +1201,18 @@ elif choice == "직위관리":
                     st.warning(f'{info} (은)는 이미 있는 이유야!')
                     return
                 else:
-                    st.success(f"코젬 {use_donate}개를 사용했습니다.")
+                    st.success(f"코젬 {use_cozem}개를 사용했습니다.")
 
-                data3 = data3.append({
-                    'Info': info, 
-                    'Use' : use_cozem,
-                    'Day' : day
+                new_data3 = pd.DataFrame({'Info': [info], 'Use': [use_cozem], 'Day': [day]})
+                data3 = pd.concat([data3, new_data3], ignore_index=True)
 
-                }, ignore_index=True)
+                # # data3 = data3.append({
+                # data3 = data3.concat({
+                #     'Info': info, 
+                #     'Use' : use_cozem,
+                #     'Day' : day
+
+                # }, ignore_index=True)
 
             def main():
                 if option == "기부 코젬 목록 삭제✂":
@@ -1092,7 +1243,7 @@ elif choice == "직위관리":
                     if st.button('기부 코젬 추가'):
                         add_data3(info, donate_cozem, day)
                         save_data3(data3)
-                        st.success(f"기부코젬 {info}이(가) 추가되었습니다.")
+                        # st.success(f"기부코젬 {info}이(가) 추가되었습니다.")
                 elif option == "기부 코젬 사용💸":
                     donate_total = data3['Cozem'].sum()
                     use_reason = st.text_input("기부 코젬 사용 목적을 작성해주세요")
@@ -1142,7 +1293,128 @@ elif choice == "직위관리":
                 main()
         else:
             st.warning('비밀번호가 틀렸습니다.')
-        
+    with tab6:
+        st.header("🏃‍♂️탈퇴/추방자 목록🏃‍♂️")
+        FILE_PATH16 = 'data16.csv'
+        st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+        password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='password16')
+        if password_input == password:
+            st.success('접근을 허용합니다')
+            options = ["탈퇴/추방자 추가➕", "탈퇴/추방자 조회🔎", "탈퇴/추방자 삭제✂", "데이터 초기화💣" ]
+            option = st.selectbox("기능 선택", options, key='select16')
+        # 파일에서 데이터 불러오기
+            def load_data16():
+                try:
+                    data16 = pd.read_csv(FILE_PATH16)
+                except FileNotFoundError:
+                    data16 = pd.DataFrame(columns=['Name', 'Date','Reason'])
+                return data16
+
+            # 데이터를 파일에 저장하기
+            def save_data16(data16):
+                data16.to_csv(FILE_PATH16, index=False)
+
+            # 데이터 초기화 함수
+            def clear_data16():
+                global data16
+                data16 = pd.DataFrame(columns=['Name', 'Date','Reason'])
+                # 파일 삭제
+                os.remove(FILE_PATH16)
+            # 데이터 삭제 함수
+            def delete_data16(row_index):
+                global data16
+                data16 = data16.drop(index=row_index).reset_index(drop=True)
+
+            # 불러온 데이터를 전역 변수로 저장
+            data16 = load_data16()
+            # def add_data1(name, warning_count, reason):
+            #     global data1
+            #     if name in data1['Name'].values:
+            #         st.warning(f'{name} (은)는 이미 있는 이름이야!')
+            #         return
+            #     else:
+            #         st.success(f"경고자 {name}이(가) 추가되었습니다.")
+
+            #     data1 = data1.append({
+            #     # data1 = data1.concat({
+            #         'Name': name, 
+            #         'Warning' : warning_count,
+            #         'Reason' : reason
+            #     }, ignore_index=True)
+            def add_data16(name, date, reason):
+                global data16
+                if name in data16['Name'].values:
+                    st.warning(f'{name} (은)는 이미 있는 이름이야!')
+                    return
+                else:
+                    st.success(f"탈퇴/추방자 {name}이(가) 추가되었습니다.")
+                    
+                new_data = pd.DataFrame({'Name': [name], 'Date': [date], 'Reason': [reason]})
+                data16 = pd.concat([data16, new_data], ignore_index=True)
+
+
+
+            
+
+            def main():
+                if option == "탈퇴/추방자 삭제✂":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0, key='pass13')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                    # 데이터 삭제 기능
+                    # if st.button('데이터 삭제'):
+                        # 사용자로부터 삭제할 행 번호 입력받기
+                        st.write(data16[['Name','Date','Reason']])
+                        row_index = st.number_input('삭제하고 싶은 데이터의 번호를 입력해주세요', min_value=0, max_value=data16.shape[0]-1)
+                        st.write("Enter를 입력하면 삭제됩니다.")
+                        if st.button('데이터 삭제'):
+                            # 해당 행이 존재할 경우, 행을 삭제
+                            if row_index >= 0 and row_index < data16.shape[0]:
+                                delete_data16(row_index)
+                                save_data16(data16)  # 데이터를 파일에 저장
+                                st.success('입력하신 행이 삭제되었습니다.')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+                elif option == "탈퇴/추방자 추가➕":
+                    # main_name = st.selectbox('본캐 이름을 골라줘', options=data5['Name'].tolist(), key='main12')
+
+                    name = st.text_input("탈퇴/추방자 이름을 입력해주세요",)
+                    reason = st.text_input("탈퇴/추방 사유를 입력해주세요")
+                    date = st.date_input(
+                        "탈퇴/추방 날짜를 설정해주세요",
+                            datetime.date.today())
+                    if st.button('탈퇴/추방자 이름 추가'):
+                        add_data16(name, date, reason)
+                        save_data16(data16)
+                        # st.success(f"경고자 {name}이(가) 추가되었습니다.")
+                
+                
+                elif option == "탈퇴/추방자 조회🔎":
+                    seceder_list = data16['Name'].tolist()
+                    if not seceder_list:
+                            st.write('탈퇴/추방자는 없습니다.')
+                    else:
+                        st.write("탈퇴/추방자 전체 명단입니다.")
+                        st.write(data16)
+
+                elif option == "데이터 초기화💣":
+                    st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
+                    password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0,key='pass2')
+                    if password_input == password:
+                        st.success('접근을 허용합니다')
+                        # 데이터 전부 삭제
+                        st.write("⚠️버튼을 누르면 데이터가 다 날아갑니다!⚠️")
+                        st.write("⚠️신중하게 누르세요!!⚠️")
+                        if st.button('차트 초기화'):
+                            clear_data16()
+                            st.warning('차트가 초기화 되었습니다')
+                    else:
+                        st.warning('비밀번호가 틀렸습니다.')
+            if __name__ == "__main__":
+                main()
+        else:
+            st.warning('비밀번호가 틀렸습니다.')    
 
 elif choice == "아카이브":
     st.header("길드 아카이브")
@@ -1157,25 +1429,25 @@ elif choice == "아카이브":
         ('초기포스터', '주황', '빨강', '파랑', '오디움', '회색', '봄'))
         if option == '초기포스터':
             st.write("초기 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/C5622AQHPwfyHde85sQ/feedshare-shrink_800/0/1679574735456?e=1682553600&v=beta&t=Ytn7R_Z91rmAmepLWj48OFjKC_lZKyrPIU64Fb42U8M", width=500)
+            st.image("Cozem/poster/초기.jpg", use_column_width=True)
         elif option == '주황':
             st.write("주황색 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/C5622AQGnvm84OE9XOQ/feedshare-shrink_2048_1536/0/1679574742562?e=1682553600&v=beta&t=Q20T7_h7lySXZjCr2h2WW0P8H7I1KZ3Udv3LPxxTonw", width=500)
+            st.image("Cozem/poster/주황.jpg", width=500)
         elif option == '빨강':
             st.write("빨간색 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/D5622AQHnVCtQebUnkg/feedshare-shrink_2048_1536/0/1679574752576?e=1682553600&v=beta&t=UEFF6vu0CO9MJ-eov77W5LShxNIm9kY4Qysep0ZiUHI", width=500)
+            st.image("Cozem/poster/빨강.jpg", width=500)
         elif option == '파랑':
             st.write("파란색 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/C5622AQEB9rQJ982QuA/feedshare-shrink_2048_1536/0/1679575884228?e=1682553600&v=beta&t=Uhyaq3z2-z-65xf2WPO1er8hzP51SF4ZYlLdmMJndL4", width=500)    
+            st.image("Cozem/poster/파랑.jpg", width=500)    
         elif option == '오디움':
             st.write("오디움 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/C5622AQE7RR2V8WJzkQ/feedshare-shrink_2048_1536/0/1679575867836?e=1682553600&v=beta&t=sqzte_TDGnXR0BU5OiYUF4nkFrolt17Oj-RVG-vBBRc", width=500)
+            st.image("Cozem/poster/오디움.jpg", width=500)
         elif option == '회색':
             st.write("회색 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/C5622AQF4OfxEF3RA7Q/feedshare-shrink_2048_1536/0/1679575859198?e=1682553600&v=beta&t=lNiV7RGiigxhNZsi8fYomkA7M4USwxk4Sy_7NtC2Un0", width=500)
+            st.image("Cozem/poster/회색.jpg", width=500)
         elif option == '봄':
             st.write("봄 컨셉 포스터입니다")
-            st.image("https://media.licdn.com/dms/image/D5622AQFO0CCKhf9Drg/feedshare-shrink_2048_1536/0/1679574361605?e=1682553600&v=beta&t=MX4A4NE3E-BJrCI_1-uh3LRAtKZWtpbofbB1ZKN-ykg", width=500)    
+            st.image("Cozem/poster/봄.jpg", width=500)    
     elif options=='길드사진':
         st.write("길드 사진 아카이브입니다.")
         col1, col2=st.columns(2)
@@ -1201,6 +1473,7 @@ elif choice == "이것저것":
             for i in range(n):
                 selected_value = random.choices(values, probabilities)[0]
                 result.append(selected_value)
+                # result.concat(selected_value)
             return result
 
         # Streamlit 앱을 실행합니다.
@@ -1333,31 +1606,82 @@ elif choice == "이것저것":
             if name in data11['Name'].values:
                         st.warning(f'{name} (은)는 이미 있는 품목이야!')
                         return
-            data11 = data11.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data11 = data11.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data11 = data11.concat({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            new_data11 = pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})
+            data11 = pd.concat([data11, new_data11], ignore_index=True)
 
         def add_data41(name, price, mount): # 밤 품목 저장
             global data41
             if name in data41['Name'].values:
                         st.warning(f'{name} (은)는 이미 있는 품목이야!')
                         return
-            data41 = data41.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data41 = data41.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data41 = data41.concat({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            new_data41 = pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})
+            data41 = pd.concat([data41, new_data41], ignore_index=True)
 
         def add_data21(name, point): # 포인트 배분 
             global data21
             if name in data21['Name'].values:
                         st.warning(f'{name} (은)는 이미 있는 이름이야!')
                         return
-            data21 = data21.append({'Name': name, 'Point': point}, ignore_index=True)
+            # data21 = data21.append({'Name': name, 'Point': point}, ignore_index=True)
+            # data21 = data21.concat({'Name': name, 'Point': point}, ignore_index=True)
+            new_data21 = pd.DataFrame({'Name': [name], 'Point': [point]})
+            data21 = pd.concat([data21, new_data21], ignore_index=True)
 
         def add_data31(name, price, mount):
             global data31
-            data31 = data31.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data31 = data31.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data31 = data31.concat({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            new_data31 = pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})
+            data31 = pd.concat([data31, new_data31], ignore_index=True)
 
         def add_data51(name, price, mount):
             global data51
-            data51 = data51.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data51 = data51.append({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            # data51 = data51.concat({'Name': name, 'Price': price, 'Mount': mount}, ignore_index=True)
+            new_data51 = pd.DataFrame({'Name': [name], 'Price': [price], 'Mount': [mount]})
+            data51 = pd.concat([data51, new_data51], ignore_index=True)
 
-        def purchase_item(name, product_name, mount): # 낮 구매하기
+        # def purchase_item(name, product_name, mount): # 낮 구매하기
+        #     global data11, data21
+        #     # data에서 product_name에 해당하는 row 선택
+        #     row = data11[data11['Name'] == product_name].iloc[0]
+        #     # data2에서 name에 해당하는 row 선택
+        #     row2 = data21[data21['Name'] == name].iloc[0]
+        #     # 구매하고자 하는 수량만큼 차감
+        #     if row['Mount'] >= mount:
+        #         data11.loc[data11['Name'] == product_name, 'Mount'] -= mount
+        #         save_data11(data11)
+        #         # 품목 가격만큼 point 차감
+        #         total_price = row['Price'] * mount
+        #         if row2['Point'] >= total_price:
+        #             # 데이터프레임에 구매내역 추가
+        #             data31 = load_data31()
+        #             purchase_df = data31[(data31['Name'] == name) & (data31['Product'] == product_name)]
+        #             if purchase_df.empty:
+        #                 purchase_df = pd.DataFrame({
+        #                     'Name': [name],
+        #                     'Product': [product_name],
+        #                     'Mount': [mount]
+        #                 })
+        #                 data31 = pd.concat([data31, purchase_df], ignore_index=True)
+        #             else:
+        #                 data31.loc[(data3['Name'] == name) & (data31['Product'] == product_name), 'Mount'] += mount
+        #             save_data31(data31)
+        #             # 구매자의 포인트 차감
+        #             data21.loc[data21['Name'] == name, 'Point'] -= total_price
+        #             save_data21(data21)
+        #             st.success(f'{product_name} {mount}개 구매 완료!')
+        #             # # 구매내역 호출 버튼 생성
+        #             # st.button("구매내역 확인", on_click=view_purchase_history)
+        #         else:
+        #             st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!(┬┬﹏┬┬)')
+        #     else:
+        #         st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
+        def purchase_item(name, product_name, mount):
             global data11, data21
             # data에서 product_name에 해당하는 row 선택
             row = data11[data11['Name'] == product_name].iloc[0]
@@ -1381,7 +1705,7 @@ elif choice == "이것저것":
                         })
                         data31 = pd.concat([data31, purchase_df], ignore_index=True)
                     else:
-                        data31.loc[(data3['Name'] == name) & (data31['Product'] == product_name), 'Mount'] += mount
+                        data31.loc[(data31['Name'] == name) & (data31['Product'] == product_name), 'Mount'] += mount
                     save_data31(data31)
                     # 구매자의 포인트 차감
                     data21.loc[data21['Name'] == name, 'Point'] -= total_price
@@ -1389,11 +1713,53 @@ elif choice == "이것저것":
                     st.success(f'{product_name} {mount}개 구매 완료!')
                     # # 구매내역 호출 버튼 생성
                     # st.button("구매내역 확인", on_click=view_purchase_history)
+                    
+                    # Concatenate purchase_df to data31 and save the updated data
+                    # data31 = pd.concat([data31, purchase_df], ignore_index=True)
+                    # save_data31(data31)
+                    
                 else:
                     st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!(┬┬﹏┬┬)')
             else:
                 st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
 
+
+        # def purchase_item2(name, product_name, mount): # 밤 구매하기
+        #     global data41, data21
+        #     # data에서 product_name에 해당하는 row 선택
+        #     row = data41[data41['Name'] == product_name].iloc[0]
+        #     # data2에서 name에 해당하는 row 선택
+        #     row2 = data21[data21['Name'] == name].iloc[0]
+        #     # 구매하고자 하는 수량만큼 차감
+        #     if row['Mount'] >= mount:
+        #         data41.loc[add_data41['Name'] == product_name, 'Mount'] -= mount
+        #         save_data41(data41)
+        #         # 품목 가격만큼 point 차감
+        #         total_price = row['Price'] * mount
+        #         if row2['Point'] >= total_price:
+        #             # 데이터프레임에 구매내역 추가
+        #             data51 = load_data51()
+        #             purchase_df = data51[(data51['Name'] == name) & (data51['Product'] == product_name)]
+        #             if purchase_df.empty:
+        #                 purchase_df = pd.DataFrame({
+        #                     'Name': [name],
+        #                     'Product': [product_name],
+        #                     'Mount': [mount]
+        #                 })
+        #                 data51 = pd.concat([data51, purchase_df], ignore_index=True)
+        #             else:
+        #                 data51.loc[(data51['Name'] == name) & (data51['Product'] == product_name), 'Mount'] += mount
+        #             save_data51(data51)
+        #             # 구매자의 포인트 차감
+        #             data21.loc[data21['Name'] == name, 'Point'] -= total_price
+        #             save_data21(data21)
+        #             st.success(f'{product_name} {mount}개 구매 완료!')
+        #             # # 구매내역 호출 버튼 생성
+        #             # st.button("구매내역 확인", on_click=view_purchase_history)
+        #         else:
+        #             st.warning(f'{name}은(는) {product_name}을(를) 구매할 포인트가 부족해!(┬┬﹏┬┬)')
+        #     else:
+        #         st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
         def purchase_item2(name, product_name, mount): # 밤 구매하기
             global data41, data21
             # data에서 product_name에 해당하는 row 선택
@@ -1402,7 +1768,7 @@ elif choice == "이것저것":
             row2 = data21[data21['Name'] == name].iloc[0]
             # 구매하고자 하는 수량만큼 차감
             if row['Mount'] >= mount:
-                data41.loc[add_data41['Name'] == product_name, 'Mount'] -= mount
+                data41.loc[data41['Name'] == product_name, 'Mount'] -= mount
                 save_data41(data41)
                 # 품목 가격만큼 point 차감
                 total_price = row['Price'] * mount
@@ -1432,12 +1798,19 @@ elif choice == "이것저것":
                 st.warning(f'{product_name}(은)는 품절되었어(⊙_⊙;)')
 
 
+
         def save_purchase_history(name, product_name, mount): # 낮 구매내역 저장
             global data31
-            data31 = data31.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            # data31 = data31.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            # data31 = data31.concat({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            new_data31 = pd.DataFrame({'Name': [name], 'Product': [product_name], 'Mount': [mount]})
+            data31 = pd.concat([data31, new_data31], ignore_index=True)
         def save_purchase_history2(name, product_name, mount): # 밤 구매내역 저장
             global data51
-            data51 = data51.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            # data51 = data51.append({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            # data51 = data51.concat({'Name': name, 'Product': product_name, 'Mount': mount}, ignore_index=True)
+            new_data51 = pd.DataFrame({'Name': [name], 'Product': [product_name], 'Mount': [mount]})
+            data51 = pd.concat([data51, new_data51], ignore_index=True)
             
         def delete_data11(row_index):
                     global data11
@@ -1544,7 +1917,7 @@ elif choice == "이것저것":
                         option_manager = st.selectbox("기능을 선택해줘!ヾ(≧▽≦*)o", options_manager)
                         if option_manager == "데이터추가➕🌞":
                             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴야o(￣┰￣*)ゞ!⚠️')
-                            password_input = st.number_input('비밀번호를 입력해주세요 : ')
+                            password_input = st.number_input('비밀번호를 입력해주세요 : ',min_value=0)
                             if password_input == password:
                                 st.success('접근을 허용합니다')
                                 name = st.text_input('품목명을 입력해줘')
@@ -1753,12 +2126,15 @@ elif choice == "피드백 남기기":
     data10 = load_data10()
     def add_data10(name, comment, day):
         global data10
-        data10 = data10.append({
-            'Name': name, 
-            'Comment' : comment,
-            'Day' : day
+        # data10 = data10.append({
+        # data10 = data10.concat({
+        #     'Name': name, 
+        #     'Comment' : comment,
+        #     'Day' : day
 
-        }, ignore_index=True)
+        # }, ignore_index=True)
+        new_data10 = pd.DataFrame({'Name': [name], 'Comment': [comment], 'Day': [day]})
+        data10 = pd.concat([data10, new_data10], ignore_index=True)
     def main():
         if option == "피드백 내용 삭제✂":
             st.error('⚠️길드 간부진만 접근할 수 있는 메뉴입니다!⚠️')
