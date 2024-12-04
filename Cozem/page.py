@@ -26,69 +26,6 @@ password = 1234
 password_test = "1234"
 
 image = Image.open("Cozem/image/banner.jpg")
-# width, height = image.size
-# # 이미지에 텍스트 추가
-# draw = ImageDraw.Draw(image)
-# text_kor = "아기자기"
-# text_eng = "Welcome to" 
-# text_ver = "updated_05.30"
-# text_madeby = "@둥둥향"
-# font_kor = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 50)
-# font_eng = ImageFont.truetype("Cozem/font/ARIAL.TTF", 50)
-# text_width, text_height = draw.textsize(text_kor, font=font_kor)
-# font_ver = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 30)
-# font_madeby = ImageFont.truetype("Cozem/font/NanumSquareNeo-eHv.ttf", 30)
-# stroke_width = 2
-# stroke_fill = (0, 0, 0)
-
-# x = text_width - 100
-# y = height - text_height - 200
-# z = height - text_height - 255
-# x_ver = width - text_width - 70
-# y_ver = height - text_height - 10
-# x_made = width - text_width - 70
-# y_made = height - text_height - 50
-# 테두리가 있는 텍스트 그리기
-
-# # 아기자기 글씨 구현
-# draw.text((x - stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x + stroke_width, y), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y - stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y + stroke_width), text_kor, font=font_kor, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, y), text_kor, font=font_kor, fill=(255, 255, 255))
-
-# # Welcome to 구현
-# draw.text((x - stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x + stroke_width, z), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, z - stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, z + stroke_width), text_eng, font=font_eng, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x, z), text_eng, font=font_eng, fill=(255, 255, 255))
-
-# # 버전 구현
-# draw.text((x_ver - stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_ver + stroke_width, y_ver), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_ver, y_ver - stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_ver, y_ver + stroke_width), text_ver, font=font_ver, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_ver, y_ver), text_ver, font=font_ver, fill=(255, 255, 255))
-
-# # madeby구현
-# draw.text((x_made - stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_made + stroke_width, y_made), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_made, y_made - stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_made, y_made + stroke_width), text_madeby, font=font_madeby, fill=stroke_fill, stroke_width=stroke_width)
-# draw.text((x_made, y_made), text_madeby, font=font_madeby, fill=(255, 255, 255))
-
-def set_BGM(bgm):
-    if bgm:
-        audio_path = f"Cozem/bgm/{bgm}.mp3"
-        audio_file = open(audio_path, 'rb').read()
-
-        return st.markdown(f'<audio autoplay loop="true" src="data:audio/mp3;base64,\
-                            {base64.b64encode(audio_file).decode()}"></audio>',\
-                            unsafe_allow_html=True)
-    else:
-        st.write("잘못된 입력입니다.")
-        pass
 
 # # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
@@ -118,18 +55,7 @@ with st.sidebar:
                 "오디움_신의창", "강림_괴력난신" , "아델의맹세", "아쉴롬_일리움", "악몽의시계탑", "시간의신전"]
     bgm = st.selectbox("🔈원하시는 배경음악을 골라주세용", bgms)
     st.write("음악은 다른 기능을 사용하면 정지됩니다.")
-    # set_BGM(bgm)
-    col3, col4 = st.columns(2)
-    with col3:
-        st.write("Play")
-        if st.button("▶"):
-            st.success("음악 재생")
-            set_BGM(bgm)
-    with col4:
-        st.write("Stop")
-        if st.button("⬛"):
-            st.warning("음악 정지")
-            pass
+
 
 # 선택된 메뉴에 따라 다른 탭 출력
 if choice == "메인페이지":
