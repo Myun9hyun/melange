@@ -1427,25 +1427,25 @@ elif choice == "아카이브":
         ('초기포스터', '주황', '빨강', '파랑', '오디움', '회색', '봄'))
         if option == '초기포스터':
             st.write("초기 포스터입니다")
-            st.image("Cozem/poster/초기.jpg", use_column_width=True)
+            st.image("Cozem/poster/first.jpg", use_column_width=True)
         elif option == '주황':
             st.write("주황색 컨셉 포스터입니다")
-            st.image("Cozem/poster/주황.jpg", width=500)
+            st.image("Cozem/poster/orange.jpg", width=500)
         elif option == '빨강':
             st.write("빨간색 컨셉 포스터입니다")
-            st.image("Cozem/poster/빨강.jpg", width=500)
+            st.image("Cozem/poster/red.jpg", width=500)
         elif option == '파랑':
             st.write("파란색 컨셉 포스터입니다")
-            st.image("Cozem/poster/파랑.jpg", width=500)    
+            st.image("Cozem/poster/blue.jpg", width=500)    
         elif option == '오디움':
             st.write("오디움 컨셉 포스터입니다")
-            st.image("Cozem/poster/오디움.jpg", width=500)
+            st.image("Cozem/poster/odium.jpg", width=500)
         elif option == '회색':
             st.write("회색 컨셉 포스터입니다")
-            st.image("Cozem/poster/회색.jpg", width=500)
+            st.image("Cozem/poster/gray.jpg", width=500)
         elif option == '봄':
             st.write("봄 컨셉 포스터입니다")
-            st.image("Cozem/poster/봄.jpg", width=500)    
+            st.image("Cozem/poster/spring.jpg", width=500)    
     elif options=='길드사진':
         st.write("길드 사진 아카이브입니다.")
         col1, col2=st.columns(2)
