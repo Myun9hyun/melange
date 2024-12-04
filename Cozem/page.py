@@ -21,7 +21,7 @@ import fitz
 from bs4 import BeautifulSoup
 
 
-st.set_page_config(page_title="BanShamDoongYoung", page_icon=":rabbit:", layout="wide")
+st.set_page_config(page_title="Melange", page_icon=":gem:", layout="wide")
 password = 1234
 password_test = "1234"
 
