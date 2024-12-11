@@ -105,8 +105,8 @@ elif choice == "아카이브":
     st.header("길드 아카이브")
     options = st.selectbox(
     '원하는 종류를 골라주세요',
-    ('포스터', '길드사진'))
-    if options=='포스터':
+    ('윤아트', '문아트'))
+    if options=='윤아트':
         st.write("길드포스터 아카이브🎨")
         st.write("길드홍보 포스터 저장소입니다")
         option = st.selectbox(
@@ -133,7 +133,7 @@ elif choice == "아카이브":
         elif option == '봄':
             st.write("봄 컨셉 포스터입니다")
             st.image("Cozem/poster/spring.jpg", width=500)    
-    elif options=='길드사진':
+    elif options=='문아트':
         st.write("길드 사진 아카이브입니다.")
         col1, col2=st.columns(2)
         with col1:
