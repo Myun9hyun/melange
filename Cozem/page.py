@@ -31,7 +31,7 @@ image = Image.open("Cozem/image/jewelry_banner.png")
 st.image(image, use_column_width=True)
 
 with st.sidebar:
-    choice = option_menu("Menu", ["메인페이지", "길드페이지","아카이브","피드백 남기기"],
+    choice = option_menu("Menu", ["메인페이지", "길드페이지","작품페이지","피드백 남기기"],
                          icons=['house', 'bi bi-emoji-smile', 'bi bi-robot', 'bi bi-palette','bi bi-archive', 'bi bi-card-text'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
@@ -101,8 +101,8 @@ elif choice == "길드페이지":
 
 
 
-elif choice == "아카이브":
-    st.header("길드 아카이브")
+elif choice == "작품페이지":
+    st.header("작품 살펴보기")
     options = st.selectbox(
     '원하는 종류를 골라주세요',
     ('윤아트', '문아트'))
