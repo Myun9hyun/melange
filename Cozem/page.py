@@ -102,197 +102,222 @@ elif choice == "길드페이지":
 
 
 elif choice == "작품페이지":
-    st.header("작품 살펴보기")
-    options = st.selectbox(
-    '원하는 종류를 골라주세요',
-    ('윤아트', '문아트', '검색하기'))
-    if options=='윤아트':
-        st.write("윤아트 작품 아카이브🎨")
-        st.write("윤아트 작품 목록입니다")
-        option = st.selectbox(
-        '원하는 작품을 골라주세요',
-        ('집으로가는길', '풍요로운오후', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
-        if option == '집으로가는길':
-            st.image("Cozem/yoon_pictures/집으로가는길.jpeg", width=500)
-            st.write("집으로 가는길")
-            st.write("박덕 작가 작품")
-            st.write("캔버스에 유화")
-            st.write("2024년 작품")
-            '''
-            ### 집으로 가는 길
-            #### 박덕 작가 작품
-            | 작품명 | 작가 | 크기 | 작품 설명 | 
-            | :---: | :---: | :---: | :---: | 
-            | 집으로 가는 길 | 박덕 | 10호 | 작은 점으로 그림을 그리는 작가로 알려진 박 덕작가의 집으로가는길작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도 입니다.집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.|
-            '''
-        elif option == '풍요로운오후':
-            st.write("풍요로운 오후")
-            st.image("Cozem/yoon_pictures/풍요로운오후.jpeg", width=500)
-        elif option == '3':
-            st.write("여심")
-            st.image("Cozem/yoon_pictures/3.jpeg", width=500)
-        elif option == '4':
-            st.write("모정")
-            st.image("Cozem/yoon_pictures/4.jpeg", width=500)    
-        elif option == '5':
-            st.write("모정")
-            st.image("Cozem/yoon_pictures/5.jpeg", width=500)
-        elif option == '6':
-            st.write("동심")
-            st.image("Cozem/yoon_pictures/6.jpeg", width=500)
-        elif option == '7':
-            st.write("통영항")
-            st.image("Cozem/yoon_pictures/7.jpeg", width=500)    
+    # st.header("작품 살펴보기")
+    # options = st.selectbox(
+    # '원하는 종류를 골라주세요',
+    # ('윤아트', '문아트', '검색하기'))
+    # if options=='윤아트':
+    #     st.write("윤아트 작품 아카이브🎨")
+    #     st.write("윤아트 작품 목록입니다")
     #     option = st.selectbox(
-    #     "원하는 작품을 골라주세요",
-    #     ("집으로가는길", "풍요로운오후", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"),
-    # )
+    #     '원하는 작품을 골라주세요',
+    #     ('집으로가는길', '풍요로운오후', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
+    #     if option == '집으로가는길':
+    #         st.image("Cozem/yoon_pictures/집으로가는길.jpeg", width=500)
+    #         st.write("집으로 가는길")
+    #         st.write("박덕 작가 작품")
+    #         st.write("캔버스에 유화")
+    #         st.write("2024년 작품")
+    #         '''
+    #         ### 집으로 가는 길
+    #         #### 박덕 작가 작품
+    #         | 작품명 | 작가 | 크기 | 작품 설명 | 
+    #         | :---: | :---: | :---: | :---: | 
+    #         | 집으로 가는 길 | 박덕 | 10호 | 작은 점으로 그림을 그리는 작가로 알려진 박 덕작가의 집으로가는길작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도 입니다.집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.|
+    #         '''
+    #     elif option == '풍요로운오후':
+    #         st.write("풍요로운 오후")
+    #         st.image("Cozem/yoon_pictures/풍요로운오후.jpeg", width=500)
+    #     elif option == '3':
+    #         st.write("여심")
+    #         st.image("Cozem/yoon_pictures/3.jpeg", width=500)
+    #     elif option == '4':
+    #         st.write("모정")
+    #         st.image("Cozem/yoon_pictures/4.jpeg", width=500)    
+    #     elif option == '5':
+    #         st.write("모정")
+    #         st.image("Cozem/yoon_pictures/5.jpeg", width=500)
+    #     elif option == '6':
+    #         st.write("동심")
+    #         st.image("Cozem/yoon_pictures/6.jpeg", width=500)
+    #     elif option == '7':
+    #         st.write("통영항")
+    #         st.image("Cozem/yoon_pictures/7.jpeg", width=500)    
+    
 
-    # # 작품 정보
-    # artworks = {
-    #     "집으로가는길": {
-    #         "작가": "박덕",
-    #         "크기": "10호",
-    #         "설명": "작은 점으로 그림을 그리는 작가로 알려진 박덕 작가의 집으로가는길. "
-    #                "작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 "
-    #                "소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도입니다. "
-    #                "집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.",
-    #         "이미지": "Cozem/yoon_pictures/집으로가는길.jpeg",
-    #         "연도": "2024",
-    #         "매체": "캔버스에 유화",
-    #     },
-    #     "풍요로운오후": {"작가": "서정애", "크기": "8호", "설명": "설명 2", "이미지": "Cozem/yoon_pictures/풍요로운오후.jpeg"},
-    #     # 다른 작품 정보를 추가하세요.
-    # }
+    # elif options=='문아트':
+    #     st.write("길드 사진 아카이브입니다.")
+    #     col1, col2=st.columns(2)
+    #     with col1:
+    #         st.write("**리나와 한컷**")
+    #         st.image("Cozem/image/guild1.jpg", use_column_width=True)
+    #     with col2:
+    #         st.write("**왕의 쉼터**")
+    #         st.image("Cozem/image/guild2.jpg", use_column_width=True)
+    #     col3, col4 = st.columns(2)
+    #     with col3:
+    #         st.write("**옷맞춤**")
+    #         st.image("Cozem/image/guild3.jpg", use_column_width=True)
+    #     with col4:
+    #         st.write("**엘리넬**")
+    #         st.image("Cozem/image/elinel.jpg", use_column_width=True)
 
-    # if option in artworks:
-    #     artwork = artworks[option]
+    # elif options=='검색하기':
+    #     # 검색 상자
+    #     st.title("작품 검색 및 아카이브")
+    #     search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
 
-    #     # 작품 검색 상자
-    #     search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 크기, 설명 등 검색 가능")
-
-    #     # 검색 결과 필터링
+    #     # 검색 결과 처리
     #     if search_query:
-    #         matched = False
-    #         for key, value in artwork.items():
-    #             if search_query.lower() in str(value).lower():
-    #                 matched = True
-    #                 st.image(artwork["이미지"], width=500)
-    #                 st.write(f"작품명: {option}")
-    #                 st.write(f"작가: {artwork['작가']}")
-    #                 st.write(f"크기: {artwork['크기']}")
-    #                 st.write(f"설명: {artwork['설명']}")
-    #                 st.write(f"연도: {artwork['연도']}")
-    #                 st.write(f"매체: {artwork['매체']}")
-    #                 break
-    #         if not matched:
+    #         search_results = []
+    #         for name, info in artworks.items():
+    #             if any(search_query.lower() in str(value).lower() for value in info.values()):
+    #                 search_results.append({"작품명": name, **info})
+
+    #         if search_results:
+    #             st.write(f"'{search_query}'에 대한 검색 결과:")
+    #             for result in search_results:
+    #                 st.image(result["이미지"], width=500)
+    #                 st.write(f"**작품명**: {result['작품명']}")
+    #                 st.write(f"**작가**: {result['작가']}")
+    #                 st.write(f"**크기**: {result['크기']}")
+    #                 st.write(f"**설명**: {result['설명']}")
+    #                 st.write(f"**연도**: {result['연도']}")
+    #                 st.write(f"**매체**: {result['매체']}")
+    #                 st.write("---")
+    #         else:
     #             st.write("검색 결과가 없습니다.")
     #     else:
-    #         # 검색어가 없는 경우 기본 정보 표시
-    #         st.image(artwork["이미지"], width=500)
-    #         st.write(f"작품명: {option}")
-    #         st.write(f"작가: {artwork['작가']}")
-    #         st.write(f"크기: {artwork['크기']}")
-    #         st.write(f"설명: {artwork['설명']}")
-    #         st.write(f"연도: {artwork.get('연도', '정보 없음')}")
-    #         st.write(f"매체: {artwork.get('매체', '정보 없음')}")
-        
+    #         st.write("검색어를 입력하면 결과가 표시됩니다.")
+            # import streamlit as st
 
-        # # 작품 정보 딕셔너리
-        # artworks = {
-        #     "집으로가는길": {
-        #         "작가": "박덕",
-        #         "크기": "10호",
-        #         "설명": "작은 점으로 그림을 그리는 작가로 알려진 박덕 작가의 집으로가는길. "
-        #             "작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 "
-        #             "소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도입니다. "
-        #             "집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.",
-        #         "이미지": "Cozem/yoon_pictures/집으로가는길.jpeg",
-        #         "연도": "2024",
-        #         "매체": "캔버스에 유화",
-        #     },
-        #     "풍요로운오후": {
-        #         "작가": "서정애",
-        #         "크기": "10호",
-        #         "설명": "평화롭고 풍요로운 오후의 순간을 담은 작품.",
-        #         "이미지": "Cozem/yoon_pictures/풍요로운오후.jpeg",
-        #         "연도": "2023",
-        #         "매체": "캔버스에 아크릴",
-        #     },
-        #     # 추가 작품 정보를 여기에 입력
-        # }
+        # 작품 정보 데이터
+        artworks = {
+            "집으로가는길": {
+                "작가": "박덕",
+                "크기": "10호",
+                "설명": "작은 점으로 그림을 그리는 작가로 알려진 박덕 작가의 집으로가는길. "
+                    "작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 "
+                    "소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도입니다. "
+                    "집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.",
+                "이미지": "Cozem/yoon_pictures/집으로가는길.jpeg",
+                "연도": "2024",
+                "매체": "캔버스에 유화",
+            },
+            "풍요로운오후": {
+                "작가": "서정애",
+                "크기": "8호",
+                "설명": "평화롭고 풍요로운 오후의 순간을 담은 작품.",
+                "이미지": "Cozem/yoon_pictures/풍요로운오후.jpeg",
+                "연도": "2023",
+                "매체": "캔버스에 아크릴",
+            },
+            "여심": {
+                "작가": "김현수",
+                "크기": "12호",
+                "설명": "여심의 아름다움을 표현한 작품.",
+                "이미지": "Cozem/yoon_pictures/3.jpeg",
+                "연도": "2022",
+                "매체": "캔버스에 유화",
+            },
+            # 다른 작품 정보를 추가할 수 있습니다.
+        }
 
-        # # 검색 상자
-        # st.title("작품 검색 및 아카이브")
-        # search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
+        # 페이지 헤더
+        st.header("작품 살펴보기")
 
-        # # 검색 결과 처리
-        # if search_query:
-        #     search_results = []
-        #     for name, info in artworks.items():
-        #         if any(search_query.lower() in str(value).lower() for value in info.values()):
-        #             search_results.append({"작품명": name, **info})
+        # 옵션 선택
+        options = st.selectbox(
+            '원하는 종류를 골라주세요',
+            ('윤아트', '문아트', '검색하기')
+        )
 
-        #     if search_results:
-        #         st.write(f"'{search_query}'에 대한 검색 결과:")
-        #         for result in search_results:
-        #             st.image(result["이미지"], width=500)
-        #             st.write(f"**작품명**: {result['작품명']}")
-        #             st.write(f"**작가**: {result['작가']}")
-        #             st.write(f"**크기**: {result['크기']}")
-        #             st.write(f"**설명**: {result['설명']}")
-        #             st.write(f"**연도**: {result['연도']}")
-        #             st.write(f"**매체**: {result['매체']}")
-        #             st.write("---")
-        #     else:
-        #         st.write("검색 결과가 없습니다.")
-        # else:
-        #     st.write("검색어를 입력하면 결과가 표시됩니다.")
+        if options == '윤아트':
+            st.write("윤아트 작품 아카이브🎨")
+            st.write("윤아트 작품 목록입니다")
+            option = st.selectbox(
+                '원하는 작품을 골라주세요',
+                tuple(artworks.keys())
+            )
 
-    elif options=='문아트':
-        st.write("길드 사진 아카이브입니다.")
-        col1, col2=st.columns(2)
-        with col1:
-            st.write("**리나와 한컷**")
-            st.image("Cozem/image/guild1.jpg", use_column_width=True)
-        with col2:
-            st.write("**왕의 쉼터**")
-            st.image("Cozem/image/guild2.jpg", use_column_width=True)
-        col3, col4 = st.columns(2)
-        with col3:
-            st.write("**옷맞춤**")
-            st.image("Cozem/image/guild3.jpg", use_column_width=True)
-        with col4:
-            st.write("**엘리넬**")
-            st.image("Cozem/image/elinel.jpg", use_column_width=True)
+            # 검색어 입력
+            search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
 
-    elif options=='검색하기':
-        # 검색 상자
-        st.title("작품 검색 및 아카이브")
-        search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
+    if search_query:
+        search_results = []
+        for name, info in artworks.items():
+            if any(search_query.lower() in str(value).lower() for value in info.values()):
+                search_results.append({"작품명": name, **info})
 
-        # 검색 결과 처리
-        if search_query:
-            search_results = []
-            for name, info in artworks.items():
-                if any(search_query.lower() in str(value).lower() for value in info.values()):
-                    search_results.append({"작품명": name, **info})
-
-            if search_results:
-                st.write(f"'{search_query}'에 대한 검색 결과:")
-                for result in search_results:
-                    st.image(result["이미지"], width=500)
-                    st.write(f"**작품명**: {result['작품명']}")
-                    st.write(f"**작가**: {result['작가']}")
-                    st.write(f"**크기**: {result['크기']}")
-                    st.write(f"**설명**: {result['설명']}")
-                    st.write(f"**연도**: {result['연도']}")
-                    st.write(f"**매체**: {result['매체']}")
-                    st.write("---")
-            else:
-                st.write("검색 결과가 없습니다.")
+        if search_results:
+            st.write(f"'{search_query}'에 대한 검색 결과:")
+            for result in search_results:
+                st.image(result["이미지"], width=500)
+                st.write(f"**작품명**: {result['작품명']}")
+                st.write(f"**작가**: {result['작가']}")
+                st.write(f"**크기**: {result['크기']}")
+                st.write(f"**설명**: {result['설명']}")
+                st.write(f"**연도**: {result['연도']}")
+                st.write(f"**매체**: {result['매체']}")
+                st.write("---")
         else:
-            st.write("검색어를 입력하면 결과가 표시됩니다.")
+            st.write("검색 결과가 없습니다.")
+    else:
+        # 검색어가 없을 때 선택된 작품 표시
+        artwork = artworks[option]
+        st.image(artwork["이미지"], width=500)
+        st.write(f"**작품명**: {option}")
+        st.write(f"**작가**: {artwork['작가']}")
+        st.write(f"**크기**: {artwork['크기']}")
+        st.write(f"**설명**: {artwork['설명']}")
+        st.write(f"**연도**: {artwork['연도']}")
+        st.write(f"**매체**: {artwork['매체']}")
+
+elif options == '문아트':
+    st.write("문아트 사진 아카이브입니다.")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("**리나와 한컷**")
+        st.image("Cozem/image/guild1.jpg", use_column_width=True)
+    with col2:
+        st.write("**왕의 쉼터**")
+        st.image("Cozem/image/guild2.jpg", use_column_width=True)
+    col3, col4 = st.columns(2)
+    with col3:
+        st.write("**옷맞춤**")
+        st.image("Cozem/image/guild3.jpg", use_column_width=True)
+    with col4:
+        st.write("**엘리넬**")
+        st.image("Cozem/image/elinel.jpg", use_column_width=True)
+
+elif options == '검색하기':
+    st.title("작품 검색 및 아카이브")
+
+    # 검색어 입력
+    search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
+
+    if search_query:
+        search_results = []
+        for name, info in artworks.items():
+            if any(search_query.lower() in str(value).lower() for value in info.values()):
+                search_results.append({"작품명": name, **info})
+
+        if search_results:
+            st.write(f"'{search_query}'에 대한 검색 결과:")
+            for result in search_results:
+                st.image(result["이미지"], width=500)
+                st.write(f"**작품명**: {result['작품명']}")
+                st.write(f"**작가**: {result['작가']}")
+                st.write(f"**크기**: {result['크기']}")
+                st.write(f"**설명**: {result['설명']}")
+                st.write(f"**연도**: {result['연도']}")
+                st.write(f"**매체**: {result['매체']}")
+                st.write("---")
+        else:
+            st.write("검색 결과가 없습니다.")
+    else:
+        st.write("검색어를 입력하면 결과가 표시됩니다.")
+
 
 elif choice == "피드백 남기기":
     st.header("둥둥에게 피드백을 남겨주세요!")
