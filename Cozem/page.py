@@ -122,9 +122,11 @@ elif choice == "작품페이지":
             ### 집으로 가는 길
             #### 박덕 작가 작품
             ### 길드 간부진 💪
-            | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 | 
+            | 작품명 | 작가 | 크기 | 작품 설명 | 
             | :---: | :---: | :---: | :---: | 
-            | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |
+            | 집으로 가는 길 | 박덕 | 10*10 | 작은 점으로 그림을 그리는 작가로 알려진 박 덕작가의 집으로가는길
+작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도 입니다.
+집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.|
             | 부마 | 릎샴  | 아크 | [![Colab](https://img.shields.io/badge/kakaotalk-릎샴-yellow)](https://open.kakao.com/o/s0FeFIee) |
             | 부마 | 둥둥향 | 캐논슈터 | [![Colab](https://img.shields.io/badge/kakaotalk-둥둥향-yellow)](https://open.kakao.com/o/sl6WBJUc) |
             | 부마 | 영래곰  | 듀얼블레이드 | [![Colab](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |
