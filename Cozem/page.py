@@ -296,27 +296,27 @@ elif choice == "작품페이지":
             # 검색어 입력
             search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
 
-        if search_query:
-            search_results = []
-            for name, info in artworks.items():
-                if any(search_query.lower() in str(value).lower() for value in info.values()):
-                    search_results.append({"작품명": name, **info})
+            if search_query:
+                search_results = []
+                for name, info in artworks.items():
+                    if any(search_query.lower() in str(value).lower() for value in info.values()):
+                        search_results.append({"작품명": name, **info})
 
-            if search_results:
-                st.write(f"'{search_query}'에 대한 검색 결과:")
-                for result in search_results:
-                    st.image(result["이미지"], width=500)
-                    st.write(f"**작품명**: {result['작품명']}")
-                    st.write(f"**작가**: {result['작가']}")
-                    st.write(f"**크기**: {result['크기']}")
-                    st.write(f"**설명**: {result['설명']}")
-                    st.write(f"**연도**: {result['연도']}")
-                    st.write(f"**매체**: {result['매체']}")
-                    st.write("---")
+                if search_results:
+                    st.write(f"'{search_query}'에 대한 검색 결과:")
+                    for result in search_results:
+                        st.image(result["이미지"], width=500)
+                        st.write(f"**작품명**: {result['작품명']}")
+                        st.write(f"**작가**: {result['작가']}")
+                        st.write(f"**크기**: {result['크기']}")
+                        st.write(f"**설명**: {result['설명']}")
+                        st.write(f"**연도**: {result['연도']}")
+                        st.write(f"**매체**: {result['매체']}")
+                        st.write("---")
+                else:
+                    st.write("검색 결과가 없습니다.")
             else:
-                st.write("검색 결과가 없습니다.")
-        else:
-            st.write("검색어를 입력하면 결과가 표시됩니다.")
+                st.write("검색어를 입력하면 결과가 표시됩니다.")
 
 
 elif choice == "피드백 남기기":
