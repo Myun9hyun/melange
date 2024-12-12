@@ -113,7 +113,7 @@ elif choice == "작품페이지":
         '원하는 작품을 골라주세요',
         ('집으로가는길', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
         if option == '집으로가는길':
-            st.image("Cozem/yoon_pictures/1.jpeg", width=500)
+            st.image("Cozem/yoon_pictures/집으로가는길.jpeg", width=500)
             st.write("집으로 가는길")
             st.write("박덕 작가 작품")
             st.write("캔버스에 유화")
@@ -125,9 +125,9 @@ elif choice == "작품페이지":
             | :---: | :---: | :---: | :---: | 
             | 집으로 가는 길 | 박덕 | 10호 | 작은 점으로 그림을 그리는 작가로 알려진 박 덕작가의 집으로가는길작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도 입니다.집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.|
             '''
-        elif option == '2':
+        elif option == '풍요로운오후':
             st.write("풍요로운 오후")
-            st.image("Cozem/yoon_pictures/2.jpeg", width=500)
+            st.image("Cozem/yoon_pictures/풍요로운오후.jpeg", width=500)
         elif option == '3':
             st.write("여심")
             st.image("Cozem/yoon_pictures/3.jpeg", width=500)
