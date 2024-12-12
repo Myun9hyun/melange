@@ -198,56 +198,56 @@ elif choice == "작품페이지":
     #         st.write(f"매체: {artwork.get('매체', '정보 없음')}")
         
 
-    # 작품 정보 딕셔너리
-    artworks = {
-        "집으로가는길": {
-            "작가": "박덕",
-            "크기": "10호",
-            "설명": "작은 점으로 그림을 그리는 작가로 알려진 박덕 작가의 집으로가는길. "
-                "작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 "
-                "소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도입니다. "
-                "집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.",
-            "이미지": "Cozem/yoon_pictures/집으로가는길.jpeg",
-            "연도": "2024",
-            "매체": "캔버스에 유화",
-        },
-        "풍요로운오후": {
-            "작가": "서정애",
-            "크기": "8호",
-            "설명": "평화롭고 풍요로운 오후의 순간을 담은 작품.",
-            "이미지": "Cozem/yoon_pictures/풍요로운오후.jpeg",
-            "연도": "2023",
-            "매체": "캔버스에 아크릴",
-        },
-        # 추가 작품 정보를 여기에 입력
-    }
+        # 작품 정보 딕셔너리
+        artworks = {
+            "집으로가는길": {
+                "작가": "박덕",
+                "크기": "10호",
+                "설명": "작은 점으로 그림을 그리는 작가로 알려진 박덕 작가의 집으로가는길. "
+                    "작은 행복과 희망이 가득한 집으로 향하는 길에 동글동글한 나무들은 "
+                    "소소한 행복이 모여 큰나무를 이룬다는 작가의 작품의도입니다. "
+                    "집으로 가는길은 꿈과 희망이 가득한 행복한 길이 바랍니다.",
+                "이미지": "Cozem/yoon_pictures/집으로가는길.jpeg",
+                "연도": "2024",
+                "매체": "캔버스에 유화",
+            },
+            "풍요로운오후": {
+                "작가": "서정애",
+                "크기": "8호",
+                "설명": "평화롭고 풍요로운 오후의 순간을 담은 작품.",
+                "이미지": "Cozem/yoon_pictures/풍요로운오후.jpeg",
+                "연도": "2023",
+                "매체": "캔버스에 아크릴",
+            },
+            # 추가 작품 정보를 여기에 입력
+        }
 
-    # 검색 상자
-    st.title("작품 검색 및 아카이브")
-    search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
+        # 검색 상자
+        st.title("작품 검색 및 아카이브")
+        search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
 
-    # 검색 결과 처리
-    if search_query:
-        search_results = []
-        for name, info in artworks.items():
-            if any(search_query.lower() in str(value).lower() for value in info.values()):
-                search_results.append({"작품명": name, **info})
+        # 검색 결과 처리
+        if search_query:
+            search_results = []
+            for name, info in artworks.items():
+                if any(search_query.lower() in str(value).lower() for value in info.values()):
+                    search_results.append({"작품명": name, **info})
 
-        if search_results:
-            st.write(f"'{search_query}'에 대한 검색 결과:")
-            for result in search_results:
-                st.image(result["이미지"], width=500)
-                st.write(f"**작품명**: {result['작품명']}")
-                st.write(f"**작가**: {result['작가']}")
-                st.write(f"**크기**: {result['크기']}")
-                st.write(f"**설명**: {result['설명']}")
-                st.write(f"**연도**: {result['연도']}")
-                st.write(f"**매체**: {result['매체']}")
-                st.write("---")
+            if search_results:
+                st.write(f"'{search_query}'에 대한 검색 결과:")
+                for result in search_results:
+                    st.image(result["이미지"], width=500)
+                    st.write(f"**작품명**: {result['작품명']}")
+                    st.write(f"**작가**: {result['작가']}")
+                    st.write(f"**크기**: {result['크기']}")
+                    st.write(f"**설명**: {result['설명']}")
+                    st.write(f"**연도**: {result['연도']}")
+                    st.write(f"**매체**: {result['매체']}")
+                    st.write("---")
+            else:
+                st.write("검색 결과가 없습니다.")
         else:
-            st.write("검색 결과가 없습니다.")
-    else:
-        st.write("검색어를 입력하면 결과가 표시됩니다.")
+            st.write("검색어를 입력하면 결과가 표시됩니다.")
 
     elif options=='문아트':
         st.write("길드 사진 아카이브입니다.")
