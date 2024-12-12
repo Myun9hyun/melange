@@ -105,7 +105,7 @@ elif choice == "작품페이지":
     st.header("작품 살펴보기")
     options = st.selectbox(
     '원하는 종류를 골라주세요',
-    ('윤아트', '문아트'))
+    ('윤아트', '문아트', '검색하기'))
     if options=='윤아트':
         st.write("윤아트 작품 아카이브🎨")
         st.write("윤아트 작품 목록입니다")
@@ -265,6 +265,34 @@ elif choice == "작품페이지":
         with col4:
             st.write("**엘리넬**")
             st.image("Cozem/image/elinel.jpg", use_column_width=True)
+
+    elif options=='검색하기':
+        # 검색 상자
+        st.title("작품 검색 및 아카이브")
+        search_query = st.text_input("검색어를 입력하세요", placeholder="작가, 작품명, 크기, 설명 등")
+
+        # 검색 결과 처리
+        if search_query:
+            search_results = []
+            for name, info in artworks.items():
+                if any(search_query.lower() in str(value).lower() for value in info.values()):
+                    search_results.append({"작품명": name, **info})
+
+            if search_results:
+                st.write(f"'{search_query}'에 대한 검색 결과:")
+                for result in search_results:
+                    st.image(result["이미지"], width=500)
+                    st.write(f"**작품명**: {result['작품명']}")
+                    st.write(f"**작가**: {result['작가']}")
+                    st.write(f"**크기**: {result['크기']}")
+                    st.write(f"**설명**: {result['설명']}")
+                    st.write(f"**연도**: {result['연도']}")
+                    st.write(f"**매체**: {result['매체']}")
+                    st.write("---")
+            else:
+                st.write("검색 결과가 없습니다.")
+        else:
+            st.write("검색어를 입력하면 결과가 표시됩니다.")
 
 elif choice == "피드백 남기기":
     st.header("둥둥에게 피드백을 남겨주세요!")
