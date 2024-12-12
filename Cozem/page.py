@@ -114,25 +114,25 @@ elif choice == "작품페이지":
         ('1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
         if option == '1':
             st.write("집으로 가는길")
-            st.image("Cozem/poster/1.jpeg", width=500)
+            st.image("Cozem/yoon_pictures/1.jpeg", width=500)
         elif option == '2':
             st.write("풍요로운 오후")
-            st.image("Cozem/poster/orange.jpg", width=500)
+            st.image("Cozem/yoon_pictures/2.jpg", width=500)
         elif option == '3':
             st.write("여심")
-            st.image("Cozem/poster/red.jpg", width=500)
+            st.image("Cozem/yoon_pictures/3.jpg", width=500)
         elif option == '4':
             st.write("모정")
-            st.image("Cozem/poster/blue.jpg", width=500)    
+            st.image("Cozem/yoon_pictures/4.jpg", width=500)    
         elif option == '5':
             st.write("모정")
-            st.image("Cozem/poster/odium.jpg", width=500)
+            st.image("Cozem/yoon_pictures/5.jpg", width=500)
         elif option == '6':
             st.write("동심")
-            st.image("Cozem/poster/gray.jpg", width=500)
+            st.image("Cozem/yoon_pictures/6.jpg", width=500)
         elif option == '7':
             st.write("통영항")
-            st.image("Cozem/poster/spring.jpg", width=500)    
+            st.image("Cozem/yoon_pictures/7.jpg", width=500)    
     elif options=='문아트':
         st.write("길드 사진 아카이브입니다.")
         col1, col2=st.columns(2)
