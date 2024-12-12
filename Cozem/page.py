@@ -112,26 +112,26 @@ elif choice == "작품페이지":
         option = st.selectbox(
         '원하는 작품을 골라주세요',
         ('1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
-        if option == '초기포스터':
-            st.write("초기 포스터입니다")
+        if option == '1':
+            st.write("집으로 가는길")
             st.image("Cozem/poster/1.jpeg", width=500)
-        elif option == '주황':
-            st.write("주황색 컨셉 포스터입니다")
+        elif option == '2':
+            st.write("풍요로운 오후")
             st.image("Cozem/poster/orange.jpg", width=500)
-        elif option == '빨강':
-            st.write("빨간색 컨셉 포스터입니다")
+        elif option == '3':
+            st.write("여심")
             st.image("Cozem/poster/red.jpg", width=500)
-        elif option == '파랑':
-            st.write("파란색 컨셉 포스터입니다")
+        elif option == '4':
+            st.write("모정")
             st.image("Cozem/poster/blue.jpg", width=500)    
-        elif option == '오디움':
-            st.write("오디움 컨셉 포스터입니다")
+        elif option == '5':
+            st.write("모정")
             st.image("Cozem/poster/odium.jpg", width=500)
-        elif option == '회색':
-            st.write("회색 컨셉 포스터입니다")
+        elif option == '6':
+            st.write("동심")
             st.image("Cozem/poster/gray.jpg", width=500)
-        elif option == '봄':
-            st.write("봄 컨셉 포스터입니다")
+        elif option == '7':
+            st.write("통영항")
             st.image("Cozem/poster/spring.jpg", width=500)    
     elif options=='문아트':
         st.write("길드 사진 아카이브입니다.")
