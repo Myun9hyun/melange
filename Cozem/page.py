@@ -111,10 +111,10 @@ elif choice == "작품페이지":
         st.write("윤아트 작품 목록입니다")
         option = st.selectbox(
         '원하는 작품을 골라주세요',
-        ('초기포스터', '주황', '빨강', '파랑', '오디움', '회색', '봄'))
+        ('1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
         if option == '초기포스터':
             st.write("초기 포스터입니다")
-            st.image("Cozem/poster/first.jpg", use_column_width=True)
+            st.image("Cozem/poster/1.jpeg", width=500)
         elif option == '주황':
             st.write("주황색 컨셉 포스터입니다")
             st.image("Cozem/poster/orange.jpg", width=500)
