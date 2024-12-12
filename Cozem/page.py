@@ -118,6 +118,9 @@ elif choice == "작품페이지":
             st.write("박덕 작가 작품")
             st.write("캔버스에 유화")
             st.write("2024년 작품")
+            '''
+            ### 집으로 가는 길
+            '''
         elif option == '2':
             st.write("풍요로운 오후")
             st.image("Cozem/yoon_pictures/2.jpg", width=500)
