@@ -113,8 +113,11 @@ elif choice == "작품페이지":
         '원하는 작품을 골라주세요',
         ('1', '2', '3', '4', '5', '6', '7','8','9','10','11','12','13','14','15','16','17','18','19'))
         if option == '1':
-            st.write("집으로 가는길")
             st.image("Cozem/yoon_pictures/1.jpeg", width=500)
+            st.write("집으로 가는길")
+            st.write("박덕 작가 작품")
+            st.write("캔버스에 유화")
+            st.write("2024년 작품")
         elif option == '2':
             st.write("풍요로운 오후")
             st.image("Cozem/yoon_pictures/2.jpg", width=500)
