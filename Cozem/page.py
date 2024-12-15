@@ -74,13 +74,38 @@ if choice == "메인페이지":
     * 경기 화성시 정남면 보통내길 205-28
     '''
     # 지도 위젯 추가
-    st.write("### 지도 위젯 예제")
+    st.write("### 확대된 지도 위젯 예제")
     # 특정 좌표 (위도, 경도)를 표시
     location_data = {
         'lat': [37.5665],  # 서울의 위도
         'lon': [126.9780]  # 서울의 경도
     }
-    st.map(location_data)
+
+    # Pydeck 맵 설정
+    view_state = pdk.ViewState(
+        latitude=37.5665,
+        longitude=126.9780,
+        zoom=15,  # 확대 수준 설정
+        pitch=0
+    )
+
+    deck = pdk.Deck(
+        map_style='mapbox://styles/mapbox/streets-v11',
+        initial_view_state=view_state,
+        layers=[
+            pdk.Layer(
+                'ScatterplotLayer',
+                data=location_data,
+                get_position='[lon, lat]',
+                get_radius=200,
+                get_color='[255, 0, 0]',
+                pickable=True
+            )
+        ]
+    )
+
+    st.pydeck_chart(deck)
+
 
 elif choice == "길드페이지":
     tab1, tab2= st.tabs(["😎Manager", "📋Rules"])
