@@ -93,7 +93,12 @@ if choice == "메인페이지":
         {
             'lat': 37.193414,  # 위도
             'lon': 126.969336,  # 경도
-            'icon_data': {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 'width': 50, 'height': 50}
+            'icon': {
+                'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 
+                'width': 50, 
+                'height': 50,
+                'anchorY': 50  # 아이콘의 Y축 기준점 설정
+            }
         }
     ]
 
@@ -106,7 +111,7 @@ if choice == "메인페이지":
                 "IconLayer",
                 icon_data,
                 get_position='[lon, lat]',
-                get_icon='icon_data',
+                get_icon='icon',
                 size_scale=15,  # 아이콘 크기 조정
                 pickable=True
             )
