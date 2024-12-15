@@ -601,7 +601,7 @@ elif choice == "작품페이지":
         )
 
         if options == '윤아트':
-            st.titie("윤아트 작품 아카이브🎨")
+            st.title("윤아트 작품 아카이브🎨")
             st.write("윤아트 작품 목록입니다")
             option = st.selectbox(
                 '원하는 작품을 골라주세요',
