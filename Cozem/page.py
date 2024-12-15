@@ -121,9 +121,7 @@ if choice == "메인페이지":
     # )
 
     # # Streamlit에서 지도 표시
-    # st.pydeck_chart(deck)
-    import streamlit as st
-   
+    # st.pydeck_chart(deck)   
 
     # 지도 좌표 설정
     latitude = 37.193414  # 위도
@@ -135,7 +133,7 @@ if choice == "메인페이지":
     # 빨간 핀을 찍기
     folium.Marker(
         [latitude, longitude],
-        popup="This is a pin",  # 마커를 클릭했을 때 나타날 텍스트
+        popup="혜경궁베이커리 내 수빈관",  # 마커를 클릭했을 때 나타날 텍스트
         icon=folium.Icon(color='red', icon='info-sign')  # 빨간색 핀 아이콘
     ).add_to(m)
 
