@@ -78,33 +78,35 @@ if choice == "메인페이지":
     st.write("### 확대된 지도 위젯 예제")
     # 특정 좌표 (위도, 경도)를 표시
     location_data = {
-        'lat': [37.193674],  # 서울의 위도
-        'lon': [127.082698]  # 서울의 경도
+    'lat': [37.193674],  # 위도
+    'lon': [127.082698]  # 경도
     }
 
     # Pydeck 맵 설정
     view_state = pdk.ViewState(
         latitude=37.193674,
         longitude=127.082698,
-        zoom=15,  # 확대 수준 설정
+        zoom=15,  # 확대 수준
         pitch=0
     )
 
+    # 지도 스타일과 빨간 점을 표시하기 위한 설정
     deck = pdk.Deck(
-        map_style='mapbox://styles/mapbox/streets-v11',
+        map_style='mapbox://styles/mapbox/streets-v11',  # Mapbox 지도 스타일 사용
         initial_view_state=view_state,
         layers=[
             pdk.Layer(
                 'ScatterplotLayer',
                 data=location_data,
                 get_position='[lon, lat]',
-                get_radius=200,
-                get_color='[255, 0, 0]',
-                pickable=True
+                get_radius=200,  # 점의 크기
+                get_color='[255, 0, 0]',  # 빨간색으로 설정
+                pickable=True  # 마우스로 클릭할 수 있도록 설정
             )
         ]
     )
 
+    # Streamlit에서 지도 표시
     st.pydeck_chart(deck)
 
 
