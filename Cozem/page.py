@@ -601,7 +601,7 @@ elif choice == "작품페이지":
         )
 
         if options == '윤아트':
-            st.write("윤아트 작품 아카이브🎨")
+            st.titie("윤아트 작품 아카이브🎨")
             st.write("윤아트 작품 목록입니다")
             option = st.selectbox(
                 '원하는 작품을 골라주세요',
@@ -642,7 +642,7 @@ elif choice == "작품페이지":
                 st.write(f"**매체**: {artwork['매체']}")
 
         elif options == '문아트':
-            st.write("문아트 사진 아카이브입니다.")
+            st.title("문아트 사진 아카이브입니다.")
             col1, col2 = st.columns(2)
             with col1:
                 st.write("**리나와 한컷**")
