@@ -75,8 +75,6 @@ if choice == "메인페이지":
     * 경기 화성시 정남면 보통내길 205-28
     '''
     # 지도 위젯 추가
-    st.write("### 확대된 지도 위젯 예제")
-    # 특정 좌표 (위도, 경도)를 표시
     location_data = {
     'lat': [37.193674],  # 위도
     'lon': [127.082698]  # 경도
@@ -90,18 +88,27 @@ if choice == "메인페이지":
         pitch=0
     )
 
-    # 지도 스타일과 빨간 점을 표시하기 위한 설정
+    # 핀 모양 아이콘 설정
+    icon_data = [
+        {
+            'lat': 37.193674,  # 위도
+            'lon': 127.082698,  # 경도
+            'icon_data': {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 'width': 50, 'height': 50}
+        }
+    ]
+
+    # 지도 스타일과 핀 모양 아이콘 표시
     deck = pdk.Deck(
         map_style='mapbox://styles/mapbox/streets-v11',  # Mapbox 지도 스타일 사용
         initial_view_state=view_state,
         layers=[
             pdk.Layer(
-                'ScatterplotLayer',
-                data=location_data,
+                "IconLayer",
+                icon_data,
                 get_position='[lon, lat]',
-                get_radius=1000,  # 점의 크기
-                get_color='[255, 0, 0]',  # 빨간색으로 설정
-                pickable=True  # 마우스로 클릭할 수 있도록 설정
+                get_icon='icon_data',
+                size_scale=15,  # 아이콘 크기 조정
+                pickable=True
             )
         ]
     )
