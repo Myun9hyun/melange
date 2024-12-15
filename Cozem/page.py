@@ -76,14 +76,14 @@ if choice == "메인페이지":
     '''
     # 지도 좌표 설정
     location_data = {
-        'lat': [37.193674],  # 위도
-        'lon': [127.082698]  # 경도
+        'lat': [37.193414],  # 위도
+        'lon': [126.969336]  # 경도
     }
 
     # Pydeck 맵 설정
     view_state = pdk.ViewState(
-        latitude=37.193674,
-        longitude=127.082698,
+        latitude=37.193414,
+        longitude=126.969336,
         zoom=15,  # 확대 수준
         pitch=0
     )
@@ -91,8 +91,8 @@ if choice == "메인페이지":
     # 핀 모양 아이콘 설정
     icon_data = [
         {
-            'lat': 37.193674,  # 위도
-            'lon': 127.082698,  # 경도
+            'lat': 37.193414,  # 위도
+            'lon': 126.969336,  # 경도
             'icon_data': {'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 'width': 50, 'height': 50}
         }
     ]
