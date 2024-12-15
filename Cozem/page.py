@@ -99,7 +99,7 @@ if choice == "메인페이지":
                 'ScatterplotLayer',
                 data=location_data,
                 get_position='[lon, lat]',
-                get_radius=200,  # 점의 크기
+                get_radius=1000,  # 점의 크기
                 get_color='[255, 0, 0]',  # 빨간색으로 설정
                 pickable=True  # 마우스로 클릭할 수 있도록 설정
             )
