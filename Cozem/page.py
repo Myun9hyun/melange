@@ -73,6 +73,14 @@ if choice == "메인페이지":
     * 혜경궁베이커리 내 수빈관 위치
     * 경기 화성시 정남면 보통내길 205-28
     '''
+    # 지도 위젯 추가
+    st.write("### 지도 위젯 예제")
+    # 특정 좌표 (위도, 경도)를 표시
+    location_data = {
+        'lat': [37.5665],  # 서울의 위도
+        'lon': [126.9780]  # 서울의 경도
+    }
+    st.map(location_data)
 
 elif choice == "길드페이지":
     tab1, tab2= st.tabs(["😎Manager", "📋Rules"])
