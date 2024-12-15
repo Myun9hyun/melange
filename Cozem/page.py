@@ -25,7 +25,8 @@ st.set_page_config(page_title="Melange", page_icon=":gem:", layout="wide")
 password = 1234
 password_test = "1234"
 
-image = Image.open("Cozem/image/jewelry_banner.png")
+## 배너 가리기
+# image = Image.open("Cozem/image/jewelry_banner.png")
 
 # # streamlit에 이미지 표시
 st.image(image, use_column_width=True)
