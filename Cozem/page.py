@@ -20,6 +20,8 @@ import PyPDF2
 import fitz
 from bs4 import BeautifulSoup
 import pydeck as pdk
+import folium
+from folium.plugins import MarkerCluster
 
 
 st.set_page_config(page_title="Melange", page_icon=":gem:", layout="wide")
@@ -75,51 +77,72 @@ if choice == "메인페이지":
     * 경기 화성시 정남면 보통내길 205-28
     '''
     # 지도 좌표 설정
-    location_data = {
-        'lat': [37.193414],  # 위도
-        'lon': [126.969336]  # 경도
-    }
+    # location_data = {
+    #     'lat': [37.193414],  # 위도
+    #     'lon': [126.969336]  # 경도
+    # }
 
-    # Pydeck 맵 설정
-    view_state = pdk.ViewState(
-        latitude=37.193414,
-        longitude=126.969336,
-        zoom=15,  # 확대 수준
-        pitch=0
-    )
+    # # Pydeck 맵 설정
+    # view_state = pdk.ViewState(
+    #     latitude=37.193414,
+    #     longitude=126.969336,
+    #     zoom=15,  # 확대 수준
+    #     pitch=0
+    # )
 
-    # 핀 모양 아이콘 설정
-    icon_data = [
-        {
-            'lat': 37.193414,  # 위도
-            'lon': 126.969336,  # 경도
-            'icon': {
-                'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 
-                'width': 50, 
-                'height': 50,
-                'anchorY': 50  # 아이콘의 Y축 기준점 설정
-            }
-        }
-    ]
+    # # 핀 모양 아이콘 설정
+    # icon_data = [
+    #     {
+    #         'lat': 37.193414,  # 위도
+    #         'lon': 126.969336,  # 경도
+    #         'icon': {
+    #             'url': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Map_pin_icon.svg/120px-Map_pin_icon.svg.png', 
+    #             'width': 50, 
+    #             'height': 50,
+    #             'anchorY': 50  # 아이콘의 Y축 기준점 설정
+    #         }
+    #     }
+    # ]
 
-    # 지도 스타일과 핀 모양 아이콘 표시
-    deck = pdk.Deck(
-        map_style='mapbox://styles/mapbox/streets-v11',  # Mapbox 지도 스타일 사용
-        initial_view_state=view_state,
-        layers=[
-            pdk.Layer(
-                "IconLayer",
-                icon_data,
-                get_position='[lon, lat]',
-                get_icon='icon',
-                size_scale=15,  # 아이콘 크기 조정
-                pickable=True
-            )
-        ]
-    )
+    # # 지도 스타일과 핀 모양 아이콘 표시
+    # deck = pdk.Deck(
+    #     map_style='mapbox://styles/mapbox/streets-v11',  # Mapbox 지도 스타일 사용
+    #     initial_view_state=view_state,
+    #     layers=[
+    #         pdk.Layer(
+    #             "IconLayer",
+    #             icon_data,
+    #             get_position='[lon, lat]',
+    #             get_icon='icon',
+    #             size_scale=15,  # 아이콘 크기 조정
+    #             pickable=True
+    #         )
+    #     ]
+    # )
 
-    # Streamlit에서 지도 표시
-    st.pydeck_chart(deck)
+    # # Streamlit에서 지도 표시
+    # st.pydeck_chart(deck)
+    import streamlit as st
+   
+
+    # 지도 좌표 설정
+    latitude = 37.193414  # 위도
+    longitude = 126.969336  # 경도
+
+    # folium 지도 생성
+    m = folium.Map(location=[latitude, longitude], zoom_start=15)
+
+    # 빨간 핀을 찍기
+    folium.Marker(
+        [latitude, longitude],
+        popup="This is a pin",  # 마커를 클릭했을 때 나타날 텍스트
+        icon=folium.Icon(color='red', icon='info-sign')  # 빨간색 핀 아이콘
+    ).add_to(m)
+
+    # Streamlit에서 folium 지도 표시
+    st.write("지도 예시:")
+    st.components.v1.html(m._repr_html_(), height=500)
+
 
 
 
