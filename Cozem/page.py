@@ -624,7 +624,7 @@ elif choice == "작품페이지":
                         st.write(f"**작품명**: {result['작품명']}")
                         st.write(f"**작가**: {result['작가']}")
                         st.write(f"**호수**: {result['호수']}")
-                        st.write(f"**크기**: {result['크기(가로X세로)']}")
+                        st.write(f"**크기(가로(cm)X세로(cm)**: {result['크기(가로X세로)']}")
                         st.write(f"**설명**: {result['설명']}")
                         st.write(f"**매체**: {result['매체']}")
                         st.write("---")
@@ -637,7 +637,7 @@ elif choice == "작품페이지":
                 st.write(f"**작품명**: {option}")
                 st.write(f"**작가**: {artwork['작가']}")
                 st.write(f"**호수**: {artwork['호수']}")
-                st.write(f"**크기**: {artwork['크기(가로X세로)']}")
+                st.write(f"**크기(가로(cm)X세로(cm))**: {artwork['크기(가로X세로)']}")
                 st.write(f"**설명**: {artwork['설명']}")
                 st.write(f"**매체**: {artwork['매체']}")
 
