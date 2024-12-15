@@ -19,6 +19,7 @@ import datetime
 import PyPDF2
 import fitz
 from bs4 import BeautifulSoup
+import pydeck as pdk
 
 
 st.set_page_config(page_title="Melange", page_icon=":gem:", layout="wide")
