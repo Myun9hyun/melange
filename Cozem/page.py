@@ -29,7 +29,7 @@ password_test = "1234"
 # image = Image.open("Cozem/image/jewelry_banner.png")
 
 # # streamlit에 이미지 표시
-st.image(image, use_column_width=True)
+# st.image(image, use_column_width=True)
 
 with st.sidebar:
     choice = option_menu("Menu", ["메인페이지", "길드페이지","작품페이지","피드백 남기기"],
