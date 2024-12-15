@@ -130,10 +130,16 @@ if choice == "메인페이지":
     # folium 지도 생성
     m = folium.Map(location=[latitude, longitude], zoom_start=15)
 
+    popup_text = """
+    <div style="white-space: nowrap; text-align: center;">
+        혜경궁베이커리 내 수빈관
+    </div>
+    """
+
     # 빨간 핀을 찍기
     folium.Marker(
         [latitude, longitude],
-        popup="혜경궁베이커리 내 수빈관",  # 마커를 클릭했을 때 나타날 텍스트
+        popup=folium.Popup(popup_text, max_width=300),  # 팝업에 스타일 적용
         icon=folium.Icon(color='red', icon='info-sign')  # 빨간색 핀 아이콘
     ).add_to(m)
 
