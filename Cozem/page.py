@@ -78,14 +78,14 @@ if choice == "메인페이지":
     st.write("### 확대된 지도 위젯 예제")
     # 특정 좌표 (위도, 경도)를 표시
     location_data = {
-        'lat': [37.5665],  # 서울의 위도
-        'lon': [126.9780]  # 서울의 경도
+        'lat': [37.193674],  # 서울의 위도
+        'lon': [127.082698]  # 서울의 경도
     }
 
     # Pydeck 맵 설정
     view_state = pdk.ViewState(
-        latitude=37.5665,
-        longitude=126.9780,
+        latitude=37.193674,
+        longitude=127.082698,
         zoom=15,  # 확대 수준 설정
         pitch=0
     )
