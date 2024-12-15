@@ -625,8 +625,8 @@ elif choice == "작품페이지":
                         st.write(f"**작품명**: {result['작품명']}")
                         st.write(f"**작가**: {result['작가']}")
                         st.write(f"**크기**: {result['크기']}")
-                        st.write(f"**설명**: {result['설명']}")
                         st.write(f"**연도**: {result['연도']}")
+                        st.write(f"**설명**: {result['설명']}")
                         st.write(f"**매체**: {result['매체']}")
                         st.write("---")
                 else:
@@ -638,8 +638,8 @@ elif choice == "작품페이지":
                 st.write(f"**작품명**: {option}")
                 st.write(f"**작가**: {artwork['작가']}")
                 st.write(f"**크기**: {artwork['크기']}")
-                st.write(f"**설명**: {artwork['설명']}")
                 st.write(f"**연도**: {artwork['연도']}")
+                st.write(f"**설명**: {artwork['설명']}")
                 st.write(f"**매체**: {artwork['매체']}")
 
         elif options == '문아트':
