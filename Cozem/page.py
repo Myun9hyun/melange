@@ -138,7 +138,6 @@ if choice == "메인페이지":
     ).add_to(m)
 
     # Streamlit에서 folium 지도 표시
-    st.write("지도 예시:")
     st.components.v1.html(m._repr_html_(), height=500)
 
 
