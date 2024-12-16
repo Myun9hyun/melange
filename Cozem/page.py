@@ -35,7 +35,7 @@ password_test = "1234"
 # st.image(image, use_column_width=True)
 
 with st.sidebar:
-    choice = option_menu("Menu", ["메인페이지", "길드페이지","작품페이지","피드백 남기기"],
+    choice = option_menu("Menu", ["메인페이지", "작품페이지","피드백 남기기"],
                          icons=['house', 'bi bi-emoji-smile', 'bi bi-robot', 'bi bi-palette','bi bi-archive', 'bi bi-card-text'],
                          menu_icon="app-indicator", default_index=0,
                          styles={
@@ -149,32 +149,32 @@ if choice == "메인페이지":
 
 
 
-elif choice == "길드페이지":
-    tab1, tab2= st.tabs(["😎Manager", "📋Rules"])
-    with tab1:
-        st.header("😎Manager")
-        st.write()
-        # col1, col2 = st.columns(2)
-        # with col1:
-        '''
-        ---
-        ### 길드 간부진 💪
-        | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 | 메지지 프로필 |
-        | :---: | :---: | :---: | :---: | :---:|
-        | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/뱌닢) |
-        | 부마 | 릎샴  | 아크 | [![Colab](https://img.shields.io/badge/kakaotalk-릎샴-yellow)](https://open.kakao.com/o/s0FeFIee) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/릎샴) |
-        | 부마 | 둥둥향 | 캐논슈터 | [![Colab](https://img.shields.io/badge/kakaotalk-둥둥향-yellow)](https://open.kakao.com/o/sl6WBJUc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/둥둥향) |
-        | 부마 | 영래곰  | 듀얼블레이드 | [![Colab](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/영래곰) |
-        '''
-# pdf_path = "Cozem/rule/아기자기_길드_규정_2023.pdf"
-        # with col2:
-        #     st.image("Cozem/image/elinel.jpg", use_column_width=True)
-    with tab2:
-        st.header("📋길드 규정집📋")
-        # st.image("Cozem/read_me_image/guide_new_1.jpg", use_column_width=True)
-        # st.image("Cozem/read_me_image/guide_new_2.jpg", use_column_width=True)
-        st.image("Cozem/read_me_image/rule_new_1.jpg", use_column_width=True)
-        st.image("Cozem/read_me_image/rule_new_2.jpg", use_column_width=True)
+# elif choice == "길드페이지":
+#     tab1, tab2= st.tabs(["😎Manager", "📋Rules"])
+#     with tab1:
+#         st.header("😎Manager")
+#         st.write()
+#         # col1, col2 = st.columns(2)
+#         # with col1:
+#         '''
+#         ---
+#         ### 길드 간부진 💪
+#         | 직책 | 이름  | 직업 | 간부진 1:1오픈채팅 | 메지지 프로필 |
+#         | :---: | :---: | :---: | :---: | :---:|
+#         | 길마👑 | 뱌닢 | 나이트로드 | [![Colab](https://img.shields.io/badge/kakaotalk-뱌닢-yellow)](https://open.kakao.com/o/spPPOAhc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/뱌닢) |
+#         | 부마 | 릎샴  | 아크 | [![Colab](https://img.shields.io/badge/kakaotalk-릎샴-yellow)](https://open.kakao.com/o/s0FeFIee) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/릎샴) |
+#         | 부마 | 둥둥향 | 캐논슈터 | [![Colab](https://img.shields.io/badge/kakaotalk-둥둥향-yellow)](https://open.kakao.com/o/sl6WBJUc) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/둥둥향) |
+#         | 부마 | 영래곰  | 듀얼블레이드 | [![Colab](https://img.shields.io/badge/kakaotalk-영래곰-yellow)](https://open.kakao.com/o/sBK5y3md) |[![maple](https://img.shields.io/badge/maplestory%20-%2314354C.svg?style=for-the-badge&logo=maplestory&logoColor=white)](https://maple.gg/u/영래곰) |
+#         '''
+# # pdf_path = "Cozem/rule/아기자기_길드_규정_2023.pdf"
+#         # with col2:
+#         #     st.image("Cozem/image/elinel.jpg", use_column_width=True)
+#     with tab2:
+#         st.header("📋길드 규정집📋")
+#         # st.image("Cozem/read_me_image/guide_new_1.jpg", use_column_width=True)
+#         # st.image("Cozem/read_me_image/guide_new_2.jpg", use_column_width=True)
+#         st.image("Cozem/read_me_image/rule_new_1.jpg", use_column_width=True)
+#         st.image("Cozem/read_me_image/rule_new_2.jpg", use_column_width=True)
 
 
 
